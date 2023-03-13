@@ -16,9 +16,7 @@ const Product = ({ item }) => {
     });
   };
 
-
   return (
-
       <div>
         {cart.some((p) => p.id === item.id) ? (
             <button>
@@ -31,7 +29,6 @@ const Product = ({ item }) => {
         )}
         <p>${item.price}</p>
       </div>
-
   );
 };
 

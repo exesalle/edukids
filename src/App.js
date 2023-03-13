@@ -45,12 +45,8 @@ function App() {
                       <Route path="watch" element={<Watch />} />
                   </Route>
               </Routes>
-
-
       </div>
-
       </>
-
   );
 }
 

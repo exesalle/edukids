@@ -20,11 +20,9 @@ const CartItem = ({ item }) => {
 
   return (
     <>
-
             <h1>
               fgfhff
             </h1>
-
     </>
   );
 };

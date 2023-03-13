@@ -49,8 +49,6 @@ const Account = () => {
                     <h3 style={{color: "#232323"}}>ВАШ ЛИЧНЫЙ КАБИНЕТ</h3>
                 </div>
             </div>
-
-
             <div className="content">
                 <div className="title">
                     <h4>ВАШИ КУРСЫ</h4>
@@ -59,14 +57,11 @@ const Account = () => {
                 <div className="course-columns">
                     <Card ImageUrl="/img/course1.svg" onClick={navigateToReading} width={280} height={200}/>
                     <Card ImageUrl="/img/course2.svg" onClick={navigateToMath} width={280} height={200}/>
-
-
                 </div>
-
             </div>
             <div className="bottom">
-
-            </div></>
+            </div>
+        </>
     )
 }
 

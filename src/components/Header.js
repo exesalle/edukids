@@ -8,10 +8,7 @@ import {LogBtn} from "./LogBtn";
 
 const Header = () => {
     const dispatch = useDispatch();
-
-
     const navigate = useNavigate();
-
 
     const navigateToLogin = () => {
         navigate('login');
@@ -20,10 +17,7 @@ const Header = () => {
         navigate('/');
     };
 
-
     return (
-
-
         <>
             <header className="header">
                 <div className="headerLeft" onClick={navigateToHome}>
@@ -33,45 +27,29 @@ const Header = () => {
                     </div>
                     <div className="headerInfo">
                         <h3>ГЛАВНАЯ</h3>
-
                     </div>
                 </div>
-
-
-
                 <LogBtn />
             </header>
-
-
             <Outlet/>
-
         </>
-
-
 
     )
     const {isAuth, email} = useAuth();
     return isAuth ? (
         <>
-
-
             <div className="content">
                 <div>
                     <h1>Welcome</h1>
-
                     <button
                         onClick={()=> dispatch(removeUser())}
                     >Log out from {email}</button>
                 </div>
             </div>
-
-
         </>
-
     ) : (
         <Navigate to="/login" />
     )
-
 }
 
 export {Header}

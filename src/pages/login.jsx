@@ -4,10 +4,7 @@ import { Link } from 'react-router-dom';
 const LoginPage = () => {
     return (
         <>
-
-
             <div className="content">
-
                 <div className="registration">
                     <div>
                         <h1>Вход</h1>
@@ -17,11 +14,7 @@ const LoginPage = () => {
                         </h3>
                     </div>
                 </div>
-
-
             </div>
-
-
         </>
     )
 }

@@ -6,12 +6,8 @@ const Form = ({title, handleClick}) => {
 
     return (
         <>
-
-
             <div className="content">
-
                 <div className="registration">
-
             <input
                 type="email"
                 value={email}
@@ -32,13 +28,7 @@ const Form = ({title, handleClick}) => {
 
                 </div>
             </div>
-
-
             </>
-
-
-
-
     )
 }
 
