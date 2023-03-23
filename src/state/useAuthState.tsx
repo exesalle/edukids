@@ -32,8 +32,9 @@ export const CurrentUser = () => {
   }
   if (user) {
     return (
-      <div>
-        <p className="user-status">{user.email}</p>
+      <div className="user-status">
+        <p>{user.displayName}</p>
+        <p>{user.email}</p>
         <button className="log-out" onClick={handleLogout}>Выйти</button>
       </div>
     );
