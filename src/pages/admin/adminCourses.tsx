@@ -22,17 +22,16 @@ const AdminCourses = () => {
       name: courseData.name,
       teacher: courseData.teacher
     });
-    await onSnapshot(collection(db, "courses"), doc => {
-      doc.forEach((d: any) => {
-        setCoursesData(prev => [...prev, d.data()])
-      });
-    });
   } catch (e) {
       console.log(e)
     }
   }
 
-
+ const displayCourses = onSnapshot(collection(db, "courses"), doc => {
+   doc.forEach((d: any) => {
+     setCoursesData(prev => [...prev, d.data()])
+   });
+ });
 
 
   return (
@@ -58,7 +57,7 @@ const AdminCourses = () => {
         <div className="main-box">
           {coursesData.map(el =>
 
-          <p key={el.id}>{el.name}</p>)
+          <p key={el.id}>{el.name} id:{el.id}</p>)
 
           }
         </div>
