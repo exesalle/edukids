@@ -5,31 +5,30 @@ type Props = {
   handleClick: (e: SyntheticEvent<HTMLFormElement>) => void;
 }
 const Form = (props: Props) => {
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
 
-    return (
-        <>
-            <div className="content">
-                <div className="registration">
-            <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="email"
-            />
-            <input
-                type="password"
-                value={pass}
-                onChange={(e) => setPass(e.target.value)}
-                placeholder="password"
-            />
+  return (
+    <>
+      <div className="content">
+        <div className="registration">
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="email"
+          />
+          <input
+            type="password"
+            value={pass}
+            onChange={(e) => setPass(e.target.value)}
+            placeholder="password"
+          />
+                  
+        </div>
+      </div>
+    </>
+  );
+};
 
-
-                </div>
-            </div>
-            </>
-    )
-}
-
-export {Form}
+export {Form};

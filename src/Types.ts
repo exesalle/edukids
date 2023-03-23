@@ -5,7 +5,6 @@ export interface IUserData {
   password:string
   name:string
 }
-
 export interface ICoursesData {
   id: number
   name: string
@@ -18,4 +17,4 @@ export const InitialCourses: ICoursesData[] = [
     name:'test',
     teacher:'testtest'
   }
-]
+];

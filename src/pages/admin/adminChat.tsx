@@ -1,5 +1,5 @@
 import React from 'react';
-import AdminMenu from "../../components/AdminMenu";
+import AdminMenu from '../../components/AdminMenu';
 
 const AdminChat = () => {
   return (
@@ -8,7 +8,7 @@ const AdminChat = () => {
       <div className="main-screen">
         <div className="title-box">
           <h2 className="title-text">
-            Чат
+            Ча
           </h2>
         </div>
         <div className="main-box">

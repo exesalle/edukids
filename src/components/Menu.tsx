@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from "../logo.svg";
-import MenuButton from "./MenuButton";
-import {CurrentUser} from "../state/useAuthState";
+import logo from '../logo.svg';
+import MenuButton from './MenuButton';
+import {CurrentUser} from '../state/useAuthState';
 
 const Menu = () => {
   return (
@@ -15,5 +15,4 @@ const Menu = () => {
     </>
   );
 };
-
 export default Menu;

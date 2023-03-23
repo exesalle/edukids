@@ -1,5 +1,5 @@
 import React from 'react';
-import AdminMenu from "../../components/AdminMenu";
+import AdminMenu from '../../components/AdminMenu';
 
 const AdminUsers = () => {
   return (

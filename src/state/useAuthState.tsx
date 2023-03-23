@@ -1,21 +1,21 @@
+import React from 'react';
 import {signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import {auth} from "../firebase";
-import {useNavigate} from "react-router-dom";
+import {auth} from '../firebase';
+import {useNavigate} from 'react-router-dom';
 
 
 export const CurrentUser = () => {
   const [user, loading, error] = useAuthState(auth);
-  const push = useNavigate()
+  const push = useNavigate();
 
   const handleLogin = () => {
-    push('/login')
-  }
-  const handleLogout = () => {
-    signOut(auth)
-    push('/login')
+    push('/login');
   };
-
+  const handleLogout = () => {
+    signOut(auth);
+    push('/login');
+  };
   if (loading) {
     return (
       <div>
