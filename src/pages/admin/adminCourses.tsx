@@ -65,9 +65,19 @@ const AdminCourses:FC = () => {
           </h2>
         </button>
         <div className="main-box">
-          {coursesData.map(el =>
-            <p key={el.id}>название:{el.name} id:{el.id}</p>)
-          }
+          <table className="table_price">
+            <tr>
+              <th>Название</th>
+              <th>Преподаватель</th>
+            </tr>
+            {coursesData.map(el =>
+              <tr key={el.id}>
+                <td>{el.name}</td>
+                <td>{el.teacher}</td>
+                <td><button>Редактировать</button></td>
+              </tr>)}
+          </table>
+
         </div>
       </div>
     </>

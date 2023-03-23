@@ -12,9 +12,4 @@ export interface ICoursesData {
 }
 
 export const InitialCourses: ICoursesData[] = [
-  {
-    id: 1,
-    name:'test',
-    teacher:'testtest'
-  }
 ];
