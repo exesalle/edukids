@@ -27,11 +27,16 @@ const AdminCourses = () => {
     }
   }
 
+  useEffect(() => {
  const displayCourses = onSnapshot(collection(db, "courses"), doc => {
    doc.forEach((d: any) => {
      setCoursesData(prev => [...prev, d.data()])
    });
  });
+ return()=>{
+   displayCourses()
+ }
+  });
 
 
   return (
@@ -57,7 +62,7 @@ const AdminCourses = () => {
         <div className="main-box">
           {coursesData.map(el =>
 
-          <p key={el.id}>{el.name} id:{el.id}</p>)
+          <p key={el.id}>название:{el.name} id:{el.id}</p>)
 
           }
         </div>
