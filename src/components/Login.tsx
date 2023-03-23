@@ -4,7 +4,8 @@ import React, {FC, SyntheticEvent, useState} from "react";
 import {IUserData} from "../Types";
 import {useNavigate} from "react-router-dom";
 
-const Login:FC = () => {
+
+const Login:React.FC = () => {
   const [userData,setUserData] = useState<IUserData>({
     email: '',
     password: ''
@@ -23,7 +24,8 @@ const Login:FC = () => {
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(userData.email, userData.password)
-      && push('/user/profile')
+        if (userData.email === 'admin@edukids.com') {push('/admin/courses')}
+        else {push('/user/profile')}
     } catch (error:any) {
       console.log(error.message)
     }
