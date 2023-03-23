@@ -1,42 +1,39 @@
 import React, {useEffect, useState} from 'react';
-import AdminMenu from "../../components/AdminMenu";
-import {collection, getDocs, addDoc, getFirestore, onSnapshot} from "firebase/firestore";
-import {ICoursesData, InitialCourses} from "../../Types";
+import AdminMenu from '../../components/AdminMenu';
+import {collection, getDocs, addDoc, getFirestore, onSnapshot} from 'firebase/firestore';
+import {ICoursesData, InitialCourses} from '../../Types';
 
 
 const AdminCourses = () => {
 
-  const db = getFirestore()
+  const db = getFirestore();
   const [courseData,setCourseData] = useState<ICoursesData>({
     id: 1,
     name: '',
     teacher: ''
-  })
+  });
 
-  const [coursesData,setCoursesData] = useState<ICoursesData[]>(InitialCourses)
+  const [coursesData,setCoursesData] = useState<ICoursesData[]>(InitialCourses);
 
   const addCourse = async () => {
     try {
-    await addDoc(collection(db, "courses"), {
-      id: Date.now(),
-      name: courseData.name,
-      teacher: courseData.teacher
-    });
-  } catch (e) {
-      console.log(e)
+      await addDoc(collection(db, 'courses'), {
+        id: Date.now(),
+        name: courseData.name,
+        teacher: courseData.teacher
+      });
+    } catch (e) {
+      console.log(e);
     }
-  }
+  };
 
-  useEffect(() => {
- const displayCourses = onSnapshot(collection(db, "courses"), doc => {
-   doc.forEach((d: any) => {
-     setCoursesData(prev => [...prev, d.data()])
-   });
- });
- return()=>{
-   displayCourses()
- }
+
+  const displayCourses = onSnapshot(collection(db, 'courses'), doc => {
+    doc.forEach((d: any) => {
+      setCoursesData(prev => [...prev, d.data()]);
+    });
   });
+
 
 
   return (
@@ -61,9 +58,7 @@ const AdminCourses = () => {
         </button>
         <div className="main-box">
           {coursesData.map(el =>
-
-          <p key={el.id}>название:{el.name} id:{el.id}</p>)
-
+            <p key={el.id}>название:{el.name} id:{el.id}</p>)
           }
         </div>
       </div>
