@@ -95,9 +95,10 @@ code {
 
   background: #F5F5F5;
   border-radius: 13px;
+
 }
 
-input {
+.input {
   box-sizing: border-box;
   width: 300px;
   height: 35px;
@@ -137,5 +138,21 @@ input {
   &:hover{
     box-shadow: 0 0 20px rgba(49, 39, 86, 0.6);
     transform: translateY(-3px);
+  }
+}
+
+.table-courses {
+  text-align: center;
+  width: 1000px;
+  margin-left: 100px;
+  margin-top: 50px;
+  overflow: hidden;
+  background: #F5F5F5;
+  border-radius: 13px;
+  tr:nth-child(2n) {
+    background: rgba(209, 204, 224, 0.42);
+  }
+  td, th {
+    padding: 10px;
   }
 }

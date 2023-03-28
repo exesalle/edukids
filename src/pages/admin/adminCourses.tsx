@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useState} from 'react';
 import AdminMenu from '../../components/AdminMenu';
 import {collection, getDocs, addDoc, getFirestore, onSnapshot, doc, query, DocumentData} from 'firebase/firestore';
-import {ICoursesData, InitialCourses} from '../../Types';
+import {ICoursesData, InitialCourses, InitialTeachers, IUserData} from '../../Types';
 
 
 const AdminCourses:FC = () => {
@@ -14,6 +14,7 @@ const AdminCourses:FC = () => {
   });
 
   const [coursesData, setCoursesData] = useState<ICoursesData[]>(InitialCourses);
+  const [teachersData, setTeachersData] = useState<IUserData[]>(InitialTeachers);
 
   const addCourse = async () => {
     try {
@@ -29,17 +30,20 @@ const AdminCourses:FC = () => {
 
 
   useEffect(() => {
-    const displayCourses = async () => {
-      const q = query(collection(db, 'courses'));
-      const querySnapshot = await getDocs(q);
-      await querySnapshot.forEach((doc:any) => {
-      // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, ' => ', doc.data());
+    const displayCollections = async () => {
+      const coursesCollection = query(collection(db, 'courses'));
+      const teachersCollection = query(collection(db, 'teachers'));
+      const coursesSnapshot = await getDocs(coursesCollection);
+      const teachersSnapshot = await getDocs(teachersCollection);
+      await coursesSnapshot.forEach((doc:any) => {
         setCoursesData(prev => [...prev, doc.data()]);
+      });
+      await teachersSnapshot.forEach((doc:any) => {
+        setTeachersData(prev => [...prev, doc.data()]);
       });
     };
     return () => {
-      displayCourses();
+      displayCollections();
     };
   }, []);
 
@@ -64,21 +68,23 @@ const AdminCourses:FC = () => {
             Добавить направление
           </h2>
         </button>
-        <div className="main-box">
-          <table className="table_price">
-            <tr>
-              <th>Название</th>
-              <th>Преподаватель</th>
-            </tr>
-            {coursesData.map(el =>
-              <tr key={el.id}>
-                <td>{el.name}</td>
-                <td>{el.teacher}</td>
-                <td><button>Редактировать</button></td>
-              </tr>)}
-          </table>
 
-        </div>
+        <table className="table-courses">
+          <tr>
+            <th>Название</th>
+            <th>Преподаватель</th>
+          </tr>
+          {coursesData.map(el =>
+            <tr key={el.id}>
+              <td>{el.name}</td>
+              <td><select>
+                {teachersData.map(el =>
+                  <option key={el.id} value="grapefruit">{el.name}</option>
+                )}
+              </select></td>
+              <td><button className="">Редактировать</button></td>
+            </tr>)}
+        </table>
       </div>
     </>
   );

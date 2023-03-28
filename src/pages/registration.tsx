@@ -7,7 +7,7 @@ const Registration = () => {
     <>
       <div className="auth">
         <h1>Регистрация</h1>
-        <SignUp />
+        <SignUp teacher={false}/>
         <p>
             У вас уже есть аккаунт? <Link to="/login">Войти</Link>
         </p>

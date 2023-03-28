@@ -1,9 +1,17 @@
-import React from 'react';
+import React, {FC} from 'react';
 import logo from '../logo.svg';
 import MenuButton from './MenuButton';
 import {CurrentUser} from '../state/useAuthState';
+import {useAuthState} from 'react-firebase-hooks/auth';
+import {auth} from '../firebase';
+import {useNavigate} from 'react-router-dom';
 
-const AdminMenu = () => {
+const AdminMenu:FC = () => {
+  const [user] = useAuthState(auth);
+  const push = useNavigate();
+  if (user?.email !== 'admin@edukids.com') {
+    push('/login');
+  }
   return (
     <>
       <div className="menu">
