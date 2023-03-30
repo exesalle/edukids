@@ -45,7 +45,7 @@ const SignUp:React.FC<Props> = (props, context) => {
       await updateProfile(res.user,{
         displayName: userData.name
       });
-      if (!props.teacher) {push('/user/profile');}
+      if (!props.teacher) {push('/user/profile');} else {return <>sss </>;}
     } catch (error:any){
       error.message && setError(error.message);
     }
@@ -62,7 +62,8 @@ const SignUp:React.FC<Props> = (props, context) => {
     try {
       await addDoc(collection(db, 'teachers'), {
         id: Date.now(),
-        name: userData.name
+        name: userData.name,
+        course: selectCourse
 
       });
     } catch (e) {
@@ -92,7 +93,6 @@ const SignUp:React.FC<Props> = (props, context) => {
         onChange={(e) => setUserData({...userData, name: e.target.value})}
         placeholder="ФИО"
       />
-
       <input className="input"
         type="email"
         value={userData.email}
@@ -123,7 +123,7 @@ const SignUp:React.FC<Props> = (props, context) => {
             placeholder="Пароль: 123456"
             readOnly
           />
-          <select >
+          <select onChange={(e) => setSelectCourse(e.target.value)}>
             {coursesData.map(el =>
               <option key={el.id} >{el.name}</option>
             )}
@@ -133,7 +133,6 @@ const SignUp:React.FC<Props> = (props, context) => {
             onClick={registerTeacher}
           >РЕГИСТРАЦИЯ</button>
         </>}
-
     </>
   );
 };
