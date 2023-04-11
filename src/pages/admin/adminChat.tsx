@@ -8,7 +8,7 @@ const AdminChat = () => {
       <div className="main-screen">
         <div className="title-box">
           <h2 className="title-text">
-            Ча
+            Чат
           </h2>
         </div>
         <div className="main-box">

@@ -14,6 +14,7 @@ import UserChat from './pages/user/userChat';
 import UserProfile from './pages/user/userProfile';
 import UserEducation from './pages/user/userEducation';
 import UserAchievments from './pages/user/userAchievments';
+import AdminTimetable from './pages/admin/adminTimetable';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route index element={<Home/>} />
           <Route path="login" element={<LoginPage/>}/>
           <Route path="registration" element={<Registration/>}/>
+          <Route path="admin/timetable" element={<AdminTimetable/>}/>
           <Route path="admin/courses" element={<AdminCourses/>}/>
           <Route path="admin/events" element={<AdminEvents/>}/>
           <Route path="admin/teachers" element={<AdminTeachers/>}/>

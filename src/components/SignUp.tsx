@@ -45,7 +45,7 @@ const SignUp:React.FC<Props> = (props, context) => {
       await updateProfile(res.user,{
         displayName: userData.name
       });
-      if (!props.teacher) {push('/user/profile');} else {return <>sss </>;}
+      if (!props.teacher) {push('/user/profile');} else {push('/admin/teachers');}
     } catch (error:any){
       error.message && setError(error.message);
     }

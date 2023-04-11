@@ -16,6 +16,7 @@ const AdminMenu:FC = () => {
     <>
       <div className="menu">
         <img src={logo} className="App-logo" alt="logo" />
+        <MenuButton title="Расписание" handleClick="../admin/timetable"/>
         <MenuButton title="Направления" handleClick="../admin/courses"/>
         <MenuButton title="Мероприятия" handleClick="../admin/events"/>
         <MenuButton title="Группы" handleClick="../admin/groups"/>

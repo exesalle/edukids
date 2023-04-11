@@ -3,28 +3,24 @@ import AdminMenu from '../../components/AdminMenu';
 import {SignUp} from '../../components/SignUp';
 import {ICoursesData, InitialCourses, InitialTeachers, IUserData} from '../../Types';
 import {collection, getDocs, getFirestore, query} from 'firebase/firestore';
+import {useDispatch, useSelector} from 'react-redux';
+import {stat} from 'fs';
+import {RootState} from '../../store/store';
+import {getTeachers} from '../../store/teacherReducer';
+import {getTeacherWatcher} from '../../saga/teacherSaga';
 
-const AdminTeachers:FC = () => {
+const AdminTeachers:React.FC = () => {
+
 
   const db = getFirestore();
-  const [coursesData, setCoursesData] = useState<ICoursesData[]>(InitialCourses);
   const [teachersData, setTeachersData] = useState<IUserData[]>(InitialTeachers);
+  const teachers = useSelector((state:RootState)=> state.TeacherReducer.teachers);
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
-    const displayCollections = async () => {
-      const coursesCollection = query(collection(db, 'courses'));
-      const teachersCollection = query(collection(db, 'teachers'));
-      const coursesSnapshot = await getDocs(coursesCollection);
-      const teachersSnapshot = await getDocs(teachersCollection);
-      await coursesSnapshot.forEach((doc:any) => {
-        setCoursesData(prev => [...prev, doc.data()]);
-      });
-      await teachersSnapshot.forEach((doc:any) => {
-        setTeachersData(prev => [...prev, doc.data()]);
-      });
-    };
     return () => {
-      displayCollections();
+      dispatch(getTeacherWatcher());
     };
   }, []);
 
@@ -50,11 +46,7 @@ const AdminTeachers:FC = () => {
           {teachersData.map(el =>
             <tr key={el.id}>
               <td>{el.name}</td>
-              <td><select>
-                {coursesData.map(el =>
-                  <option key={el.id}>{el.name}</option>
-                )}
-              </select></td>
+              <td>{el.course}</td>
               <td><button className="">Сохранить</button></td>
             </tr>)}
         </table>
