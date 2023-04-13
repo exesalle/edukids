@@ -8,7 +8,7 @@ const initialState: StateType = {
   teachers: []
 };
 
-export const GET_TEACHERS = 'GET_TEACHERS';
+export const ASYNC_GET_TEACHERS = 'ASYNC_GET_TEACHERS';
 
 export const TeacherReducer = (state = initialState, action: { type: ActionTypes, payload: any }): StateType => {
   switch (action.type){
@@ -43,6 +43,7 @@ export const getTeachers = (payload:any) => {
     payload
   };
 };
+export const asyncGetTeachers = () => ({type: 'ASYNC_GET_TEACHERS'});
 
 export const addTeachers = (payload:any) => {
   return {

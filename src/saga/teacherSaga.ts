@@ -1,23 +1,18 @@
-import {put, takeEvery, call} from 'redux-saga/effects';
-import {getTeachers, GET_TEACHERS} from '../store/teacherReducer';
+import {put, takeEvery} from 'redux-saga/effects';
+import {getTeachers, ASYNC_GET_TEACHERS} from '../store/teacherReducer';
 import {collection, getDocs, getFirestore, query} from 'firebase/firestore';
 
 const db = getFirestore();
 const teachersCollection = query(collection(db, 'teachers'));
-const displayCollections = async () => {
-  const teachersSnapshot = await getDocs(teachersCollection);
+function* getTeachersWorker():any {
+  const teachersSnapshot = yield getDocs(teachersCollection);
   const collections: any[] = [];
-  await teachersSnapshot.forEach((doc: any) => {
+  yield teachersSnapshot.forEach((doc: any) => {
     collections.push(doc.data());
   });
-  return collections;
-};
-
-function* getTeachersWorker():any {
-  const response = yield new Promise(displayCollections);
-  yield put(getTeachers(response));
+  yield put(getTeachers(collections));
 }
 
-export function* getTeacherWatcher():any {
-  yield takeEvery(GET_TEACHERS, getTeachersWorker);
+export function* getTeachersWatcher():any {
+  yield takeEvery(ASYNC_GET_TEACHERS, getTeachersWorker);
 }

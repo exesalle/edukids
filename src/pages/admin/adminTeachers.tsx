@@ -6,8 +6,7 @@ import {collection, getDocs, getFirestore, query} from 'firebase/firestore';
 import {useDispatch, useSelector} from 'react-redux';
 import {stat} from 'fs';
 import {RootState} from '../../store/store';
-import {getTeachers} from '../../store/teacherReducer';
-import {getTeacherWatcher} from '../../saga/teacherSaga';
+import {asyncGetTeachers, getTeachers} from '../../store/teacherReducer';
 
 const AdminTeachers:React.FC = () => {
 
@@ -20,7 +19,7 @@ const AdminTeachers:React.FC = () => {
 
   useEffect(() => {
     return () => {
-      dispatch(getTeacherWatcher());
+      dispatch(asyncGetTeachers());
     };
   }, []);
 
@@ -43,7 +42,7 @@ const AdminTeachers:React.FC = () => {
             <th>Преподаватель</th>
             <th>Направление</th>
           </tr>
-          {teachersData.map(el =>
+          {teachers.map(el =>
             <tr key={el.id}>
               <td>{el.name}</td>
               <td>{el.course}</td>

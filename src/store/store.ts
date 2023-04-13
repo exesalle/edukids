@@ -4,12 +4,14 @@ import {AuthReducer} from './authReducer';
 import createSagaMiddleware from 'redux-saga';
 import {rootWatcher} from '../saga/saga';
 import {TeacherReducer} from './teacherReducer';
+import {CourseReducer} from './courseReducer';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const rootReducer = combineReducers({
   AuthReducer,
-  TeacherReducer
+  TeacherReducer,
+  CourseReducer
 });
 
 const store = configureStore({

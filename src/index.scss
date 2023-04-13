@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #E1D3EC;
+  background: #ffffff;
 }
 
 code {
@@ -49,6 +49,8 @@ code {
 }
 
 .main-screen {
+  margin-left: 100px;
+  margin-top: 80px;
 }
 
 .menu-button {
@@ -72,14 +74,19 @@ code {
   text-align: center;
 }
 
+.input-course {
+  display: flex;
+  gap: 10px
+}
+
 .title-box {
   display: inline-block;
   padding: 18px 32px;
   height: 10px;
   margin-left: 100px;
   margin-top: 80px;
-  background: #E1D2EC;
-  border: 3px solid #3B274B;
+  background: #F5F5F5;
+  border: 2px solid #3B274B;
   border-radius: 85px;
 }
 
@@ -144,15 +151,18 @@ code {
 .table-courses {
   text-align: center;
   width: 1000px;
-  margin-left: 100px;
   margin-top: 50px;
   overflow: hidden;
-  background: #F5F5F5;
-  border-radius: 13px;
+  background: #ffffff;
+  border-radius: 7px;
+  border: 1px solid #3B274B;
   tr:nth-child(2n) {
-    background: rgba(209, 204, 224, 0.42);
+    background: rgba(212, 212, 229, 0.42);
   }
   td, th {
     padding: 10px;
+  }
+  th {
+    padding: 20px;
   }
 }
