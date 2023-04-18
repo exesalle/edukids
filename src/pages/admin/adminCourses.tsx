@@ -1,12 +1,11 @@
 import React, {FC, useEffect, useState} from 'react';
 import AdminMenu from '../../components/AdminMenu';
-import {ICoursesData} from '../../Types';
-import {asyncGetTeachers} from '../../store/teacherReducer';
-import {asyncAddCourse, asyncDeleteCourse, asyncGetCourses, asyncUpdateCourse} from '../../store/courseReducer';
-import {useDispatch, useSelector} from 'react-redux';
-import {RootState} from '../../store/store';
-import {Button, Dropdown, Input, Modal, Select, Space} from 'antd';
+import {useSelector} from 'react-redux';
+import {RootState, useStoreDispatch} from '../../store/store';
+import {Button, Input, Modal, Select} from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import {addCourse, getCourses, removeCourse, updateCourse} from '../../store/coursesSlice';
+import {getTeachers} from '../../store/teachersSlice';
 
 
 const AdminCourses:FC = () => {
@@ -21,17 +20,18 @@ const AdminCourses:FC = () => {
     teacher: ''
   });
 
-  const dispatch = useDispatch();
-  const teachers = useSelector((state:RootState)=> state.TeacherReducer.teachers);
-  const courses = useSelector((state:RootState)=> state.CourseReducer.courses);
+  const dispatch = useStoreDispatch();
+  const teachers = useSelector((state:RootState)=> state.teachers.teachers);
+  const courses = useSelector((state:RootState)=> state.courses.courses);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     return () => {
-      dispatch(asyncGetCourses());
-      dispatch(asyncGetTeachers());
+      dispatch(getCourses());
+      dispatch(getTeachers());
     };
-  }, []);
+  }, [dispatch]);
 
   const showModal = (id: number, name: string, teacher: string) => {
     setIsModalOpen(true);
@@ -39,7 +39,7 @@ const AdminCourses:FC = () => {
   };
 
   const handleOk = () => {
-    dispatch(asyncUpdateCourse(editData.id, editData.name, editData.teacher));
+    dispatch(updateCourse(editData));
     setIsModalOpen(false);
   };
 
@@ -55,8 +55,8 @@ const AdminCourses:FC = () => {
     setCourseData({...courseData, teacher: value});
   };
 
-  const addCourse = () => {
-    dispatch(asyncAddCourse(courseData.name, courseData.teacher));
+  const handleaddCourse = () => {
+    dispatch(addCourse({id: Date.now(), name:courseData.name, teacher:courseData.teacher}));
     setCourseData({...courseData, name: ''});
   };
 
@@ -72,7 +72,7 @@ const AdminCourses:FC = () => {
               <Select.Option value={el.name} key={el.id} >{el.name}</Select.Option >
             )}
           </Select>
-          <Button type="primary" onClick={addCourse}>Добавить направление</Button>
+          <Button type="primary" onClick={handleaddCourse}>Добавить направление</Button>
         </div>
         <table className="table-courses">
           <tr>
@@ -86,7 +86,7 @@ const AdminCourses:FC = () => {
               <td>{el.name}</td>
               <td>{el.teacher}</td>
               <td><Button type="primary" icon={<EditOutlined />} onClick={() => showModal(el.id,el.name,el.teacher)} size="large" /></td>
-              <td><Button type="primary" icon={<DeleteOutlined />} onClick={() => dispatch(asyncDeleteCourse(el.id))} size="large"  danger/></td>
+              <td><Button type="primary" icon={<DeleteOutlined />} onClick={() => dispatch(removeCourse(el))} size="large"  danger/></td>
             </tr>)}
           <Modal title="Редактировать" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
             <Input addonBefore="Название:" type="name" value={editData.name}

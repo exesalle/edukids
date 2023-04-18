@@ -1,12 +1,14 @@
 import {put, takeEvery} from 'redux-saga/effects';
 import {
-  getCourses,
-  ASYNC_GET_COURSES,
-  ASYNC_DELETE_COURSE,
   ASYNC_ADD_COURSE,
-  deleteCourse, addCourse, ASYNC_UPDATE_COURSE, updateCourse
-} from '../store/courseReducer';
+  ASYNC_GET_COURSES,
+  ASYNC_REMOVE_COURSE,
+  ASYNC_UPDATE_COURSE,
+  getCoursesSuccess,
+  removeCourseSuccess
+} from '../store/coursesSlice';
 import {addDoc, collection, deleteDoc, doc, getDocs, getFirestore, query, updateDoc} from 'firebase/firestore';
+import {ICoursesData} from '../Types';
 
 const db = getFirestore();
 const coursesCollection = query(collection(db, 'courses'));
@@ -16,36 +18,31 @@ function* getCoursesWorker():any {
   yield coursesSnapshot.forEach((doc: any) => {
     collections.push({ ...doc.data(), id: doc.id });
   });
-  yield put(getCourses(collections));
+  yield put(getCoursesSuccess(collections));
 }
 
-function* deleteCourseWorker({id}:any):any {
-  yield deleteDoc(doc(db, 'courses', id.toString()));
-  yield put(deleteCourse(id));
+function* removeCourseWorker({ payload }: {type: typeof ASYNC_REMOVE_COURSE; payload: ICoursesData }) {
+  yield deleteDoc(doc(db, 'courses', payload.id.toString()));
+  yield put(removeCourseSuccess(payload));
 }
 
-function* updateCourseWorker({id, name, teacher}:any):any {
+function* updateCourseWorker({ payload }: {type: typeof ASYNC_ADD_COURSE; payload: ICoursesData }) {
   const course = {
-    name: name.toString(),
-    teacher: teacher.toString()
+    name: payload.name.toString(),
+    teacher: payload.teacher.toString()
   };
-  yield updateDoc(doc(db, 'courses/', id), course);
+  yield updateDoc(doc(db, 'courses/', payload.id.toString()), course);
   yield getCoursesWorker();
 }
 
-function* addCourseWorker({name, teacher}:any):any {
-  const course = {
-    id: Date.now(),
-    name: name.toString(),
-    teacher: teacher.toString()
-  };
-  yield addDoc(collection(db, 'courses/'), course);
+function* addCourseWorker({ payload }: {type: typeof ASYNC_ADD_COURSE; payload: ICoursesData }) {
+  yield addDoc(collection(db, 'courses/'), payload);
   yield getCoursesWorker();
 }
 
 export function* courseWatcher():any {
   yield takeEvery(ASYNC_GET_COURSES, getCoursesWorker);
-  yield takeEvery(ASYNC_DELETE_COURSE, deleteCourseWorker);
+  yield takeEvery(ASYNC_REMOVE_COURSE, removeCourseWorker);
   yield takeEvery(ASYNC_ADD_COURSE, addCourseWorker);
   yield takeEvery(ASYNC_UPDATE_COURSE, updateCourseWorker);
 }

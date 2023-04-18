@@ -1,15 +1,15 @@
 import { getAuth} from 'firebase/auth';
 import {useSignInWithEmailAndPassword} from 'react-firebase-hooks/auth';
 import React, {FC, SyntheticEvent, useState} from 'react';
-import {IUserData} from '../Types';
+import {IUserInfo} from '../Types';
 import {useNavigate} from 'react-router-dom';
 
 
 const Login:React.FC = () => {
-  const [userData,setUserData] = useState<IUserData>({
+  const [userData,setUserData] = useState<IUserInfo>({
     email: '',
     password: ''
-  } as IUserData);
+  } as IUserInfo);
 
   const auth = getAuth();
   const [

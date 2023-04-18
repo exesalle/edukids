@@ -1,11 +1,10 @@
 
 
-export interface IUserData {
+export interface IUserInfo {
   id:string
   email:string
   password:string
   name:string
-
   course:string
 }
 export interface ICoursesData {
@@ -23,7 +22,7 @@ export interface ITeachersData {
 export const InitialCourses: ICoursesData[] = [
 ];
 
-export const InitialTeachers: IUserData[] = [
+export const InitialTeachers: IUserInfo[] = [
 ];
 
 export enum ActionTypes {
@@ -38,6 +37,10 @@ export enum ActionTypes {
   ADD_COURSE = 'ADD_COURSE',
   DELETE_COURSE = 'DELETE_COURSE',
   GET_COURSES = 'GET_COURSES',
-  UPDATE_COURSE ='UPDATE_COURSE'
+  UPDATE_COURSE ='UPDATE_COURSE',
+  ADD_EVENT = 'ADD_EVENT',
+  DELETE_EVENT = 'DELETE_EVENT',
+  GET_EVENTS = 'GET_EVENTS',
+  UPDATE_EVENT ='UPDATE_EVENT',
 
 }

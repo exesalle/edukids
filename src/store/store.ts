@@ -1,17 +1,16 @@
-import {applyMiddleware, combineReducers, createStore} from 'redux';
+import {combineReducers} from 'redux';
 import {configureStore} from '@reduxjs/toolkit';
-import {AuthReducer} from './authReducer';
 import createSagaMiddleware from 'redux-saga';
 import {rootWatcher} from '../saga/saga';
-import {TeacherReducer} from './teacherReducer';
-import {CourseReducer} from './courseReducer';
+import { useDispatch } from 'react-redux';
+import courses from './coursesSlice';
+import teachers from './teachersSlice';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const rootReducer = combineReducers({
-  AuthReducer,
-  TeacherReducer,
-  CourseReducer
+  courses,
+  teachers
 });
 
 const store = configureStore({
@@ -26,3 +25,4 @@ sagaMiddleware.run(rootWatcher);
 
 export default store;
 export type RootState = ReturnType<typeof store.getState>;
+export const useStoreDispatch = () => useDispatch<typeof store.dispatch>();

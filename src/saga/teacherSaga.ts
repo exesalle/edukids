@@ -1,5 +1,5 @@
 import {put, takeEvery} from 'redux-saga/effects';
-import {getTeachers, ASYNC_GET_TEACHERS} from '../store/teacherReducer';
+import {ASYNC_GET_TEACHERS, getTeachersSuccess} from '../store/teachersSlice';
 import {collection, getDocs, getFirestore, query} from 'firebase/firestore';
 
 const db = getFirestore();
@@ -10,7 +10,7 @@ function* getTeachersWorker():any {
   yield teachersSnapshot.forEach((doc: any) => {
     collections.push(doc.data());
   });
-  yield put(getTeachers(collections));
+  yield put(getTeachersSuccess(collections));
 }
 
 export function* getTeachersWatcher():any {

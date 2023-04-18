@@ -108,12 +108,12 @@ code {
 .input {
   box-sizing: border-box;
   width: 300px;
-  height: 35px;
-  background: #e5e5e5;
+  height: 45px;
+  background: rgba(212, 212, 229, 0.42);
   border: 0px solid #d9d9d9;
   border-radius: 15px;
-  font-size:20px;
-  padding: 25px;
+  font-size:18px;
+  padding-left: 20px;
   margin-bottom: 15px;
   &:focus {
     Outline: 0;
@@ -133,14 +133,12 @@ code {
   justify-content: center;
   align-items: center;
   padding: 28px 32px;
-  border-color: #2C1C3D;
   margin-top: 10px;
   color: #F5F5F5;
   width: 300px;
   height: 10px;
   cursor: pointer;
-  background: #2C1C3D;
-  border-radius: 100px;
+  border-radius: 15px;
   transition: box-shadow 0.25s ease-in-out, transform 0.25s ease-in-out;
   &:hover{
     box-shadow: 0 0 20px rgba(49, 39, 86, 0.6);

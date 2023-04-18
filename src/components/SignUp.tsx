@@ -1,9 +1,12 @@
 import React, {useEffect} from 'react';
 import {getAuth, createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
-import {FC, useState} from 'react';
-import {ICoursesData, InitialCourses, IUserData} from '../Types';
+import {useState} from 'react';
+import {ICoursesData, InitialCourses, IUserInfo} from '../Types';
 import {useNavigate} from 'react-router-dom';
 import {addDoc, collection, getDocs, getFirestore, query} from 'firebase/firestore';
+import {Button, Select} from 'antd';
+import {useSelector} from 'react-redux';
+import {RootState} from '../store/store';
 
 type Props = {
   teacher: boolean
@@ -12,6 +15,8 @@ const SignUp:React.FC<Props> = (props, context) => {
 
   const db = getFirestore();
   const [coursesData, setCoursesData] = useState<ICoursesData[]>(InitialCourses);
+
+  const courses = useSelector((state:RootState)=> state.courses.courses);
 
   useEffect(() => {
     const displayCollections = async () => {
@@ -27,11 +32,11 @@ const SignUp:React.FC<Props> = (props, context) => {
     };
   }, []);
 
-  const [userData,setUserData] = useState<IUserData>({
+  const [userData,setUserData] = useState<IUserInfo>({
     email: '',
     password: '',
     name: ''
-  } as IUserData);
+  } as IUserInfo);
 
   const [confirmPassword, setConfirmPassword] = useState('');
   const [selectCourse, setSelectCourse] = useState('');
@@ -84,6 +89,10 @@ const SignUp:React.FC<Props> = (props, context) => {
       setError('Введите email');
     }
   };
+
+  const handleOnChangeCourse = (value:string) => {
+    setSelectCourse(value);
+  };
   
   return (
     <>
@@ -114,24 +123,20 @@ const SignUp:React.FC<Props> = (props, context) => {
             placeholder="Повторите пароль"
           />
           <p>{error && <p>{error}</p>}</p>
-          <button className="signUp"
-            onClick={validatePassword}
-          >РЕГИСТРАЦИЯ</button>
+          <Button className="signUp" type="primary" onClick={validatePassword}>РЕГИСТРАЦИЯ</Button>
         </>):<>
           <input className="input"
             type="text"
             placeholder="Пароль: 123456"
             readOnly
           />
-          <select onChange={(e) => setSelectCourse(e.target.value)}>
-            {coursesData.map(el =>
-              <option key={el.id} >{el.name}</option>
+          <Select placeholder="Направление"   style={{ width: 300 }} onSelect={(value) => handleOnChangeCourse(value)} >
+            {courses.map(el =>
+              <Select.Option value={el.name} key={el.id} >{el.name}</Select.Option >
             )}
-          </select>
+          </Select>
           <p>{error && <p>{error}</p>}</p>
-          <button className="signUp"
-            onClick={registerTeacher}
-          >РЕГИСТРАЦИЯ</button>
+          <Button className="signUp" type="primary" onClick={registerTeacher}>ЗАРЕГИСТРИРОВАТЬ ПРЕПОДАВАТЕЛЯ</Button>
         </>}
     </>
   );
