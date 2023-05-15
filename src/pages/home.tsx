@@ -1,48 +1,9 @@
-import Card from '../components/Card';
-import {useNavigate} from 'react-router-dom';
+
 import React from 'react';
 import './home.scss';
 import {LogBtn} from '../components/LogBtn';
 
 const Home = () => {
-
-  const navigate = useNavigate();
-
-  const navigateToReading = () => {
-    navigate('reading');
-  };
-
-  const navigateToProgramming = () => {
-    navigate('programming');
-  };
-
-  const navigateToMath = () => {
-    navigate('math');
-  };
-
-  const navigateToDrawing = () => {
-    navigate('drawing');
-  };
-
-  const navigateToEnglish = () => {
-    navigate('english');
-  };
-
-  const navigateToFastreading = () => {
-    navigate('fastreading');
-  };
-
-  const navigateToMental = () => {
-    navigate('mental');
-  };
-
-  const navigateToRussian = () => {
-    navigate('russian');
-  };
-
-  const navigateToSchool = () => {
-    navigate('school');
-  };
 
   return (
     <>
@@ -62,12 +23,12 @@ const Home = () => {
           </div>
 
           <div className="course-columns">
-            <Card ImageUrl="/img/course3.svg" />
-            <Card ImageUrl="/img/course4.svg" />
-            <Card ImageUrl="/img/course5.svg"/>
-            <Card ImageUrl="/img/course6.svg"/>
-            <Card ImageUrl="/img/course7.svg"/>
-            <Card ImageUrl="/img/course8.svg"/>
+            <img  alt="1" width={280} height={200} src="/img/course3.svg" />
+            <img  alt="1" width={280} height={200} src="/img/course4.svg" />
+            <img  alt="1" width={280} height={200} src="/img/course5.svg"/>
+            <img  alt="1" width={280} height={200} src="/img/course6.svg"/>
+            <img  alt="1" width={280} height={200} src="/img/course7.svg"/>
+            <img  alt="1" width={280} height={200} src="/img/course8.svg"/>
           </div>
 
 

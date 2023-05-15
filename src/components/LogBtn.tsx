@@ -6,6 +6,7 @@ import {auth} from '../firebase';
 import {signOut} from 'firebase/auth';
 
 const LogBtn = () => {
+  const user = auth.currentUser;
   const navigate = useNavigate();
   const navigateToLogin = () => {
     navigate('login');
@@ -14,13 +15,14 @@ const LogBtn = () => {
     navigate('registration');
   };
   const navigateToAccount = () => {
-    if (user.displayName.includes('user')) {
-      navigate('user/schedule');
-    } else if (user.displayName.includes('teacher')) {
-      navigate('teacher/schedule');
-    } else if (user.displayName.includes('admin')) {
-      navigate('teacher/schedule');}
-      
+    if (user?.displayName) {
+      if (user.displayName.includes('user')) {
+        navigate('user/schedule');
+      } else if (user.displayName.includes('teacher')) {
+        navigate('teacher/schedule');
+      } else if (user.displayName.includes('admin')) {
+        navigate('teacher/schedule');}
+    }
   };
 
   const handleLogout = () => {
@@ -29,7 +31,7 @@ const LogBtn = () => {
   };
 
 
-  const user = auth.currentUser;
+
 
   return (user) ? (
     <>
