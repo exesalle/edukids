@@ -17,6 +17,8 @@ const SignUp:React.FC<Props> = (props) => {
   const dispatch = useStoreDispatch();
 
   const [userData,setUserData] = useState<IUserInfo>({
+    name: '',
+    email: '',
     password: '123456',
     isTeacher: props.teacher
   } as IUserInfo);

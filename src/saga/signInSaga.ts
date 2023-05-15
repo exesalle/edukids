@@ -14,14 +14,16 @@ function* signInWorker(action: ReturnType<typeof signInUser>): any {
       action.payload.email,
       action.payload.password
     );
-    const user = userCredential.user;
+    const user = yield userCredential.user;
     console.log('user:', user);
     if (action.payload.email === 'admin@edukids.com') {
-      action.meta.push('/admin/courses');
-    } else if (action.meta.isTeacher) {
-      action.meta.push('/teacher/profile');
+      yield action.meta.push('/admin/courses');
+    } else if (user.displayName.includes('teacher')) {
+      console.log('teacher');
+      yield action.meta.push('/teacher/schedule');
     } else {
-      action.meta.push('/user/profile');
+      console.log(action.payload);
+      yield action.meta.push('/user/schedule');
     }
   } catch (error: any) {
     console.log(error.message);

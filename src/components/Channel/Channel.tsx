@@ -68,8 +68,12 @@ const Channel = ({ currentChat }: ChatProps) => {
     <>
       {currentChat?.course ?
         <div className="channel-container">
-          <h2>Группа: {currentChat.title}</h2>
-          <h3>Направление: {currentChat.course}</h3>
+          <div style={{textAlign: 'center'}}>
+            <h3>Группа: {currentChat.title}</h3>
+            <h3>Направление: {currentChat.course}</h3>
+            <h3>Групповой чат:</h3>
+          </div>
+
           <div className="messages-container">
             {messages.length === 0 ?
               <p>Напишите первое сообщение</p> :

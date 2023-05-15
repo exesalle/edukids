@@ -16,7 +16,6 @@ const TeacherMenu = () => {
       <div className="menu">
         <CurrentUser/>
         <MenuButton title="Мои занятия" handleClick="../teacher/schedule"/>
-        <MenuButton title="Мои ученики" handleClick="../teacher/users"/>
         <MenuButton title="Группы" handleClick="../teacher/groups"/>
       </div>
     </>

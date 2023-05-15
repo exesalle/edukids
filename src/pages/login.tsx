@@ -7,7 +7,7 @@ const LoginPage = () => {
     <>
       <div className="auth">
         <h1>Вход</h1>
-        <Login teacher={false}/>
+        <Login/>
         <p>Нет аккаунта?<Link to="/registration">Зарегистрируйтесь</Link></p>
         <p><Link to="/">Вернуться на главное меню</Link></p>
       </div>

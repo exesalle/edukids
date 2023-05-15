@@ -34,8 +34,8 @@ export const ASYNC_SIGN_IN = 'ASYNC_SIGN_IN';
 export const signInUser = createAction(
 
   'ASYNC_SIGN_IN',
-  (payload: IUserInfo, push: NavigateFunction, isTeacher: boolean) => {
-    return { payload, meta: { push, isTeacher } };
+  (payload: IUserInfo, push: NavigateFunction) => {
+    return { payload, meta: {push} };
   }
 );
 

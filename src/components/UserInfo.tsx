@@ -88,9 +88,9 @@ const UserInfo = ({ currentChat, allUsers }: ChatParticipantsProps): JSX.Element
       {currentChat?.course ?
         !user?.displayName?.includes('user') ?
           <>
-            <div style={{ height: '500px', padding: 20}}>
-              <h2>Журнал</h2>
-              <h3>{activeUser.name}</h3>
+            <div style={{ height: '600px', padding: 20}}>
+              <h2 style={{textAlign: 'center'}}>Журнал</h2>
+              <h3 style={{textAlign: 'center'}}>{activeUser.name}</h3>
               <Row>
                 <Col span={9}  style={{width: '250px', overflowY: 'auto'}}>
                   {currentChannelUsers.map((participant) => mappingParticipants(participant, uuid()))}

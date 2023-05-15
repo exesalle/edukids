@@ -5,16 +5,14 @@ import {Button} from 'antd';
 import {useStoreDispatch} from '../store/store';
 import {signInUser} from '../store/signInSlice';
 
-type Props = {
-    teacher: boolean
-}
-const Login:React.FC<Props> = (props) => {
-  const [userData,setUserData] = useState<IUserInfo>({} as IUserInfo);
+
+const Login:React.FC = () => {
+  const [userData,setUserData] = useState<IUserInfo>({ email: '', password: '' } as IUserInfo);
   const dispatch = useStoreDispatch();
 
   const push = useNavigate();
   const handleLogin = () => {
-    dispatch(signInUser(userData, push, props.teacher));
+    dispatch(signInUser(userData, push));
   };
 
   return (
