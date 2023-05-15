@@ -1,0 +1,41 @@
+.user-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  overflow-y: auto;
+  height: calc(100vh - 190px);
+}
+
+.create-group-view {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  margin: 0 auto;
+}
+
+.create-group-wrapper,
+.list-of-added-participants {
+  height: calc(100vh - 420px);
+  padding: 10%;
+  margin-top: 20px;
+}
+
+.list-of-added-participants {
+  border-left: 2px solid rgb(44, 28, 61);
+}
+
+input {
+  border-radius: 5px;
+  background-color: rgba(245, 247, 251, 1);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid rgb(44, 28, 61);
+}
+
+.users-container,
+.users-container-added {
+  overflow-y: auto;
+  height: calc(65vh - 142px);
+  padding-right: 10px;
+  border-radius: 10px;
+}

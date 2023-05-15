@@ -1,0 +1,35 @@
+.message-box {
+  display: flex;
+  margin: 0 auto;
+  padding: 1em;
+  bottom: 0;
+  width: 600px;
+  gap: 10px;
+}
+
+
+
+.send-btn {
+  background-color: rgba(243, 214, 121, 1);
+  height: 51px;
+  min-width: 51px;
+  padding: 10px;
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  color: rgba(69, 88, 207, 1);
+  transition: border-color 0.5s, background-color 0.5s, color 0.5s;
+}
+
+.emoji-btn i,
+.send-btn i {
+  font-size: 15pt;
+  text-align: center;
+}
+
+.emoji-btn:hover,
+.send-btn:hover {
+  background-color: white;
+  border: 1px solid rgba(69, 88, 207, 1);
+  color: rgba(69, 88, 207, 1);
+}

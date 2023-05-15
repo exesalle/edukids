@@ -1,0 +1,26 @@
+
+.participants-list {
+  padding: 30px 0px;
+  text-align: center;
+  background-color: rgb(84, 56, 106);
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  min-height: 100vh;
+  max-width: 230px;
+}
+
+.participants {
+  height: calc(100vh - 100px);
+  max-height: calc(100vh - 390px);
+  overflow-y: auto;
+}
+
+.manage-participants-btns {
+  position: absolute;
+  bottom: 20px;
+  width: 90%;
+}
+
+.add-btn {
+  margin-bottom: 10px;
+}
