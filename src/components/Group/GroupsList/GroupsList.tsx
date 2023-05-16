@@ -14,7 +14,7 @@ const GroupsList = ({ props }:  IChatsListProps) => {
     setIsDetailedChatClicked,
   } = useContext(AppContext);
 
-  const [activeChannel, setActiveChat] = useState<IChat>({} as IChat);
+  const [activeChat, setActiveChat] = useState<IChat>({} as IChat);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const user = auth.currentUser;
   const getChannelsBySearchTerm = (searchTerm: string, channels: IChat[]) => {
@@ -23,14 +23,14 @@ const GroupsList = ({ props }:  IChatsListProps) => {
   };
   const result = getChannelsBySearchTerm(searchTerm, props.chats!);
 
-  const handleOpenChannel = (chanObj: IChat) => {
+  const handleOpenChat = (chanObj: IChat) => {
     openDetailedChat(chanObj);
     setActiveChat(chanObj);
   };
 
   const mappingChats = (chanObj: IChat, key: string) => {
     return <div key={key} className="chat-items">
-      <button onClick={() => handleOpenChannel(chanObj)} className={activeChannel.title === chanObj.title ?'chat-item-active' : 'chat-item'}>{chanObj.title}</button>
+      <button onClick={() => handleOpenChat(chanObj)} className={activeChat.title === chanObj.title ?'chat-item-active' : 'chat-item'}>{chanObj.title}</button>
     </div>;
   };
 

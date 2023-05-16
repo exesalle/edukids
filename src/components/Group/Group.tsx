@@ -36,7 +36,7 @@ const Group:React.FC= () => {
     course:''});
   const [initialParticipants, setInitialParticipants] = useState<IUserInfo[]>([]);
   const [addedParticipants, setAddedParticipants] = useState<IUserInfo[]>([]);
-  const [chats, setChannels] = useState<IChat[]>([]);
+  const [chats, setChats] = useState<IChat[]>([]);
   const [groupData, setGroupData] = useState({
     name: '',
     teacher: 'Преподаватель',
@@ -78,7 +78,7 @@ const Group:React.FC= () => {
               .then((values) => {
                 const sortedChannels: IChat[] = values
                   .sort((chan1, chan2) => +chan1.lastActivity < +chan2.lastActivity ? 1 : -1);
-                setChannels(sortedChannels);
+                setChats(sortedChannels);
               });
           }
         });
