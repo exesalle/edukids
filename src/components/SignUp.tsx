@@ -3,6 +3,7 @@ import {useState} from 'react';
 import {IUserInfo} from '../Types';
 import {useNavigate} from 'react-router-dom';
 import {Button} from 'antd';
+import {useStoreDispatch} from '../store/store';
 import {signUpUser} from '../store/signUpSlice';
 
 
