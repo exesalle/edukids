@@ -1,6 +1,6 @@
 import { ChatProps, IMessage } from '../../Types';
 import React, { useEffect, useRef, useState } from 'react';
-import { editMessage, fromMessagesDocument, getLiveMessages } from '../../services/messages.services';
+import { fromMessagesDocument, getLiveMessages } from '../../services/messages.services';
 import CreateMessage from '../CreateMessage/CreateMessage';
 import Message from '../Message/Message';
 import { addMessage } from '../../services/messages.services';
@@ -44,17 +44,11 @@ const Channel = ({ currentChat }: ChatProps) => {
 
   const handleSubmit = (message: string) => {
     if (message.trim().length > 0) {
-      if (isInEditMode) {
-        setIsInEditMode(false);
-        editMessage(currentChat?.id, messageToBeEdited?.id, message)
-          .catch(console.error);
-      } else {
-        addMessage(currentChat.id, user?.displayName|| 'default_username', message)
-          .then(() => updateChatLastActivity(currentChat.id, Date.now()))
-          .catch((err) => {
-            console.error(err);
-          });
-      }
+      addMessage(currentChat.id, user?.displayName|| 'default_username', message)
+        .then(() => updateChatLastActivity(currentChat.id, Date.now()))
+        .catch((err) => {
+          console.error(err);
+        });
     } else {
       console.log('Введите сообщение');
     }

@@ -31,6 +31,7 @@ export interface IMessage {
   id: string,
   content: string,
   author: string,
+  role:string,
   createdOn: Date,
   likedBy: string[],
   fileURL?: string,

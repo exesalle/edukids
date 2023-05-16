@@ -35,26 +35,6 @@ export const addMessage = (chatId: string, username: string, content: string) =>
     });
 };
 
-export const addMessageImage = (chatId: string, username: string, fileURL: string) => {
-  return push(ref(dbr, `channels/${chatId}/messages`), {
-    author: username,
-    content: '',
-    fileURL: fileURL,
-    createdOn: Date.now(),
-    likedBy: [],
-    image: true,
-  })
-    .then((res) => {
-      return getMessageById(chatId, res.key);
-    });
-};
-
-export const editMessage = (chatId: string | undefined, messageId: string | undefined, content: string) => {
-  return update(ref(dbr), {
-    [`channels/${chatId}/messages/${messageId}/content`]: content,
-  });
-};
-
 export const getMessageById = (chatId: string, messageId: string | null) => {
   return get(ref(dbr, `channels/${chatId}/messages/${messageId}`))
     .then((res) => {
@@ -74,20 +54,4 @@ export const getMessageById = (chatId: string, messageId: string | null) => {
 
       return message;
     });
-};
-
-export const likeMessage = (chatId: string, messageId: string, username: string) => {
-  const updateLikes: { [index: string]: boolean } = {};
-
-  updateLikes[`channels/${chatId}/messages/${messageId}/likedBy/${username}`] = true;
-
-  return update(ref(dbr), updateLikes);
-};
-
-export const unlikeMessage = (chatId: string, messageId: string, username: string) => {
-  const updateLikes: { [index: string]: boolean | null } = {};
-
-  updateLikes[`channels/${chatId}/messages/${messageId}/likedBy/${username}`] = null;
-
-  return update(ref(dbr), updateLikes);
 };
