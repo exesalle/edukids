@@ -7,6 +7,7 @@ import {RootState, useStoreDispatch} from '../../store/store';
 import {addMark, getMarks} from '../../store/marksSlice';
 import {useSelector} from 'react-redux';
 import {auth} from '../../firebase';
+import moment from 'moment/moment';
 
 const UserInfo = ({ currentChat, allUsers }: ChatParticipantsProps): JSX.Element | null => {
 
@@ -36,7 +37,11 @@ const UserInfo = ({ currentChat, allUsers }: ChatParticipantsProps): JSX.Element
           <>
             <Tag color="green">{item.date}</Tag>
           </>);
-      }
+      },
+      sorter: {
+        compare: (a: any, b: any) =>
+          moment(a.date, 'DD-MM-YYYY').valueOf() - moment(b.date, 'DD-MM-YYYY').valueOf(),
+      },
     },
 
     {

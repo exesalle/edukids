@@ -11,6 +11,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import {IEventsData} from '../../Types';
 import uuid from 'react-uuid';
 import {getUsers} from '../../store/usersSlice';
+import moment from 'moment';
 
 const AdminEvents:React.FC = () => {
 
@@ -41,7 +42,11 @@ const AdminEvents:React.FC = () => {
           <>
             <Tag color="green">{item.date}</Tag>
           </>);
-      }
+      },
+      sorter: {
+        compare: (a: any, b: any) =>
+          moment(a.date, 'DD-MM-YYYY').valueOf() - moment(b.date, 'DD-MM-YYYY').valueOf(),
+      },
     },
     {
       title: 'Время',
