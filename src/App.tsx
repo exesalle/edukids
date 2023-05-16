@@ -8,7 +8,7 @@ import AdminCourses from './pages/admin/adminCourses';
 import AdminEvents from './pages/admin/adminEvents';
 import AdminTeachers from './pages/admin/adminTeachers';
 import AdminUsers from './pages/admin/adminUsers';
-import AdminChat from './pages/admin/adminChat';
+import AdminGroup from './pages/admin/adminGroup';
 import UserGroup from './pages/user/userGroup';
 import UserSchedule from './pages/user/userSchedule';
 import UserAchievments from './pages/user/userAchievments';
@@ -48,7 +48,7 @@ function App() {
             <Route path="admin/events" element={<AdminEvents/>}/>
             <Route path="admin/teachers" element={<AdminTeachers/>}/>
             <Route path="admin/users" element={<AdminUsers/>}/>
-            <Route path="admin/groups" element={<AdminChat/>}/>
+            <Route path="admin/groups" element={<AdminGroup/>}/>
             <Route path="user/group" element={<UserGroup/>}/>
             <Route path="user/profile" element={<UserSchedule/>}/>
             <Route path="user/achievments" element={<UserAchievments/>}/>

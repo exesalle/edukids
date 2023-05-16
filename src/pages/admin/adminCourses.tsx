@@ -50,7 +50,6 @@ const AdminCourses:FC = () => {
   });
 
   const dispatch = useStoreDispatch();
-  const teachers = useSelector((state:RootState)=> state.teachers.teachers);
   const courses = useSelector((state:RootState)=> state.courses.courses);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -96,11 +95,9 @@ const AdminCourses:FC = () => {
         <div className="input-course">
           <Input placeholder="Название" type="name" value={courseData.name}
             onChange={(e) => setCourseData({...courseData, name: e.target.value})} />
-
           <Button type="primary" onClick={handleAddCourse}>Добавить направление</Button>
         </div>
         <div>
-
           <Table columns={columns} dataSource={courses} rowKey={uuid}/>
           <Modal title="Редактировать" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
             <Input addonBefore="Название:" type="name" value={editData.name}

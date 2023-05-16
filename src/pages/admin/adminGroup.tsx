@@ -1,14 +1,14 @@
 import React from 'react';
 import AdminMenu from '../../components/Menu/AdminMenu';
-import Chat from '../../components/Group/Group';
+import Group from '../../components/Group/Group';
 
-const AdminChat = () => {
+const AdminGroup = () => {
   return (
     <>
       <AdminMenu/>
-      <Chat/>
+      <Group/>
     </>
   );
 };
 
-export default AdminChat;
+export default AdminGroup;
