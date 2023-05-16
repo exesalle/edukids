@@ -55,7 +55,7 @@ const GroupsList = ({ props }:  IChatsListProps) => {
         <>
           <Button style={{width: '200px'}} onClick={openCreateChat}>Создать группу</Button>
           <h4>Группы:</h4>
-          <Input style={{width: '200px'}} type="text" value="" placeholder="Поиск..." onChange={(event) => setSearchTerm(event.target.value)} />
+          <Input style={{width: '200px'}} type="text" value={searchTerm} placeholder="Поиск..." onChange={(event) => setSearchTerm(event.target.value)} />
         </> : null
       }
       <div className="chats">
