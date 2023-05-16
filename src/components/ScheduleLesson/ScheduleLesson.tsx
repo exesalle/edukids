@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import AppContext from '../../providers/AppContext';
 import {ILesson, ScheduleLessonProps} from '../../Types';
-import './ScheduleLesson.css';
 import {Button, DatePicker, DatePickerProps, Input, TimePicker} from 'antd';
 import {useStoreDispatch} from '../../store/store';
 import {addLesson} from '../../store/scheduleSlice';

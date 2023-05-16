@@ -1,6 +1,5 @@
 import React from 'react';
 import { UserProps } from '../../Types';
-import './User.css';
 import { Tag} from 'antd';
 
 const UserComponent = ({ props }: UserProps): JSX.Element => {

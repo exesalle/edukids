@@ -197,3 +197,20 @@ code {
     padding: 20px;
   }
 }
+
+.meeting-info {
+  width: 220px;
+  margin-bottom: 10px
+}
+
+.user-box {
+  margin: 5px;
+}
+
+.username-button {
+  padding-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
