@@ -2,12 +2,12 @@ import React, { useContext, useState } from 'react';
 import uuid from 'react-uuid';
 import { getChatByName, getChatById } from '../../../services/chats.services';
 import { IChat, IChatsListProps } from '../../../Types';
-import './Chats.scss';
+import './GroupsList.scss';
 import AppContext from '../../../providers/AppContext';
 import {Button, Input} from 'antd';
 import {auth} from '../../../firebase';
 
-const ChatsList = ({ props }:  IChatsListProps) => {
+const GroupsList = ({ props }:  IChatsListProps) => {
 
   const {
     setIsCreateChatClicked,
@@ -66,4 +66,4 @@ const ChatsList = ({ props }:  IChatsListProps) => {
   );
 };
 
-export default ChatsList;
+export default GroupsList;

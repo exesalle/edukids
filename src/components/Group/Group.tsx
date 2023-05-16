@@ -13,7 +13,7 @@ import {Button, Input, Select} from 'antd';
 import UserInfo from './UserInfo';
 import {getTeachers} from '../../store/teachersSlice';
 import {getCourses} from '../../store/coursesSlice';
-import ChatsList from './ChatsList/ChatsList';
+import GroupsList from './GroupsList/GroupsList';
 
 
 
@@ -123,7 +123,7 @@ const Group:React.FC= () => {
 
   return (
     <>
-      <ChatsList props={{ chats, setCurrentChat }} />
+      <GroupsList props={{ chats, setCurrentChat }} />
 
       <div style={{width: '100%'}
       }>
@@ -132,10 +132,7 @@ const Group:React.FC= () => {
           <>
             <div className="main-screen">
               <Input style={{ width: 230, marginRight: 10 }}  name="group-name" placeholder="Введите название группы..." required defaultValue=""
-                onChange={(e) => setGroupData({
-                  ...groupData,
-                  name: e.target.value.trim()
-                })} />
+                onChange={(e) => setGroupData({...groupData, name: e.target.value.trim()})} />
               <Select style={{ width: 330 , marginRight: 20 }} value={groupData.course} onSelect={(value) => handleOnChangeCourse(value)} >
                 {courses.map((el, index) =>
                   <Select.Option value={el.name} key={index} >{el.name}</Select.Option >
@@ -156,7 +153,6 @@ const Group:React.FC= () => {
             <UserInfo  currentChat={currentChat} allUsers={users}/>
           </> : <></>
         }
-
         </>
       </div>
       <ChatParticipants currentChat={currentChat} allUsers={users} />
