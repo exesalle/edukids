@@ -4,12 +4,16 @@
   src: url("../../public/centurygothic.ttf") format("ttf");
 }
 
+$primary-color: #548235;
+$background-color: #C5E0B4;
+$active-color: #385723;
+
 body {
   margin: 0;
   font-family: "Century Gothic";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #f5f5f5
+  background: #f5f5f5;
 }
 
 .wrapper {

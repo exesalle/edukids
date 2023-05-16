@@ -29,7 +29,7 @@ const CreateMessage = ({ handleSubmit, existingMessage }: CreateMessageProps) =>
     <div className="message-box">
       <TextArea autoSize={{ minRows: 3, maxRows: 3}}  placeholder="Написать сообщение..." value={message} onKeyDown={handleKeyDown} onChange={(e) => setMessage(e.target.value)}>
       </TextArea>
-      <Button type="primary"  value="" onClick={sendMessage} icon={<SendOutlined />}>Отправить</Button>
+      <Button type="primary" className="button" value="" onClick={sendMessage} icon={<SendOutlined />}>Отправить</Button>
 
     </div>
   );

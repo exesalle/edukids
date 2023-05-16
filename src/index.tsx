@@ -11,7 +11,6 @@ import { ConfigProvider } from 'antd';
 import ru from 'antd/locale/ru_RU';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ru';
-import AppContext from './providers/AppContext';
 dayjs.locale('ru');
 
 const root = ReactDOM.createRoot(
@@ -20,7 +19,13 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
 
-    <ConfigProvider locale={ru}>
+    <ConfigProvider locale={ru}
+      theme={{
+        token: {
+          colorPrimary: 'DarkSeaGreen',
+        },
+      }}
+    >
       <BrowserRouter>
 
         <Provider store={store}>

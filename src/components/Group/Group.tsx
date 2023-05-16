@@ -125,7 +125,7 @@ const Group:React.FC= () => {
         <> {isCreateChatClicked ?
           <>
             <div className="main-screen">
-              <Input style={{ width: 230, marginRight: 10 }}  name="group-name" placeholder="Введите название группы..." required defaultValue=""
+              <Input style={{ width: 230, marginRight: 10 }}  name="group-name" placeholder="Название группы..." required defaultValue=""
                 onChange={(e) => setGroupData({...groupData, name: e.target.value.trim()})} />
               <Select style={{ width: 330 , marginRight: 20 }} value={groupData.course} onSelect={(value) => handleOnChangeCourse(value)} >
                 {courses.map((el, index) =>
