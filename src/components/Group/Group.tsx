@@ -121,10 +121,7 @@ const Group:React.FC= () => {
   return (
     <>
       <GroupsList props={{ chats, setCurrentChat }} />
-
-      <div style={{width: '100%'}
-      }>
-
+      <div style={{width: '100%'}}>
         <> {isCreateChatClicked ?
           <>
             <div className="main-screen">
