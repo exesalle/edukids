@@ -32,9 +32,10 @@ const LogBtn = () => {
 
   return (user) ? (
     <>
-      <div>
+      <div style={{ gap: 20, position: 'absolute'}}>
         <Button className="signUp" onClick={navigateToAccount}>
-          <img alt="lk" height={35} width={35} src="/img/lk.png"/>
+          {/*<img alt="lk" height={35} width={35} src="/img/lk.png"/>*/}
+          <h4 style={{color: '#232323'}}> ЛИЧНЫЙ КАБИНЕТ</h4>
         </Button>
         <Button className="signUp" onClick={handleLogout}>
           <h4 style={{color: '#232323'}}>ВЫЙТИ ИЗ {user.email}</h4></Button>
@@ -42,15 +43,14 @@ const LogBtn = () => {
     </>
 
   ) : (
-    <div className="headerRight">
+    <div style={{ gap: 20, position: 'absolute'}}>
       <Button className="signUp" onClick={navigateToRegistration}>
         <h4 style={{color: '#232323'}}>РЕГИСТРАЦИЯ</h4>
       </Button>
 
-      <Button className="signUp" onClick={navigateToLogin}>
-        <h4 style={{color: '#232323'}}>ВХОД</h4>
+      <Button className="signUp"  type="primary" onClick={navigateToLogin}>
+        <h4>ВХОД</h4>
       </Button>
-
     </div>
   );
 

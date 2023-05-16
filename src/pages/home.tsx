@@ -8,12 +8,12 @@ const Home = () => {
   return (
     <>
       <div style={{display: 'block',   width: '1200px', marginLeft: 150}}>
-        <LogBtn/>
         <div className="main-m">
           <img alt="df" src="/img/main.svg" />
           <div className="main-text">
             <span style={{color: '#232323'}}>EDU</span><span style={{color: '#F6931E'}}>KIDS</span>
             <h2 style={{color: '#232323'}}>ЦЕНТР ДЕТСКОГО ТВОРЧЕСТВА ДЛЯ ДЕТЕЙ</h2>
+            <LogBtn/>
           </div>
 
         </div>
