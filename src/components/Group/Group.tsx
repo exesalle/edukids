@@ -4,8 +4,6 @@ import {IChat,IUserInfo} from '../../Types';
 import {auth} from '../../firebase';
 import ManiPulateUsersLists from './ManipulateUsersLists/ManiPulateUsersLists';
 import AppContext from '../../providers/AppContext';
-import ChatParticipants from './GroupParticipants/GroupParticipants';
-import Channel from './ChatWindow/ChatWindow';
 import {getUsers} from '../../store/usersSlice';
 import {RootState, useStoreDispatch} from '../../store/store';
 import {useSelector} from 'react-redux';
@@ -14,6 +12,8 @@ import UserInfo from './UserInfo';
 import {getTeachers} from '../../store/teachersSlice';
 import {getCourses} from '../../store/coursesSlice';
 import GroupsList from './GroupsList/GroupsList';
+import GroupParticipants from './GroupParticipants/GroupParticipants';
+import ChatWindow from './ChatWindow/ChatWindow';
 
 const Group:React.FC= () => {
   const {
@@ -120,11 +120,11 @@ const Group:React.FC= () => {
 
   return (
     <>
-      <GroupsList props={{ chats, setCurrentChat }} />
-      <div style={{width: '100%'}}>
+      <div style={{width: '100%-300px', display: 'flex'}}>
+        <GroupsList props={{ chats, setCurrentChat }} />
         <> {isCreateChatClicked ?
-          <>
-            <div className="main-screen">
+          <div style={{display: 'block'}}>
+            <div className="main-screen" style={{width:700}}>
               <Input style={{ width: 230, marginRight: 10 }}  name="group-name" placeholder="Название группы..." required defaultValue=""
                 onChange={(e) => setGroupData({...groupData, name: e.target.value.trim()})} />
               <Select style={{ width: 330 , marginRight: 20 }} value={groupData.course} onSelect={(value) => handleOnChangeCourse(value)} >
@@ -140,16 +140,19 @@ const Group:React.FC= () => {
               setLeftSide={setInitialParticipants}
               rightSide={addedParticipants}
               setRightSide={setAddedParticipants} />
-          </>: null}
+          </div>: null}
         {isDetailedChatClicked ?
           <>
-            <Channel currentChat={currentChat} />
-            <UserInfo  currentChat={currentChat} allUsers={users}/>
+            <div style={{display: 'block'}}>
+              <ChatWindow currentChat={currentChat} />
+              <UserInfo  currentChat={currentChat} allUsers={users}/>
+            </div>
           </> : <></>
         }
         </>
+        <GroupParticipants currentChat={currentChat} allUsers={users} />
       </div>
-      <ChatParticipants currentChat={currentChat} allUsers={users} />
+
     </>
   );
 };

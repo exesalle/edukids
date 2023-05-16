@@ -3,6 +3,7 @@ import uuid from 'react-uuid';
 import {ChatParticipantsProps,IMark, IUserInfo} from '../../Types';
 import UserComponent from '../User/User';
 import {Button, Col, DatePicker, DatePickerProps, Row, Select, Space, Table, Tag} from 'antd';
+import {UserAddOutlined} from '@ant-design/icons';
 import {RootState, useStoreDispatch} from '../../store/store';
 import {addMark, getMarks} from '../../store/marksSlice';
 import {useSelector} from 'react-redux';
@@ -62,10 +63,10 @@ const UserInfo = ({ currentChat, allUsers }: ChatParticipantsProps): JSX.Element
 
   const mappingParticipants = (participant: IUserInfo, key: string) => {
     const buttonEl: JSX.Element =
-        <Button onClick={() => {
+        <Button icon={<UserAddOutlined />} onClick={() => {
           dispatch(getMarks(participant, currentChat.course));
           setActiveUser(participant);
-        }}> Выбрать
+        }}>
         </Button>;
     return <div key={key}>
       <UserComponent props={{ user: participant, buttonEl}} />
@@ -93,7 +94,7 @@ const UserInfo = ({ currentChat, allUsers }: ChatParticipantsProps): JSX.Element
       {currentChat?.course ?
         !user?.displayName?.includes('user') ?
           <>
-            <div style={{ height: '600px', padding: 20}}>
+            <div style={{ height: '700px', padding: 20}}>
               <h2 style={{textAlign: 'center'}}>Журнал</h2>
               <h3 style={{textAlign: 'center'}}>{activeUser.name}</h3>
               <Row>
@@ -101,7 +102,6 @@ const UserInfo = ({ currentChat, allUsers }: ChatParticipantsProps): JSX.Element
                   {currentChannelUsers.map((participant) => mappingParticipants(participant, uuid()))}
                 </Col>
                 <Col span={15} >
-
                   <div className="input-course">
                     <Select defaultValue="Оценка" style={{width: 230}} onSelect={(value) => handleOnChangeMark(value)} >
                       <Select.Option value="5" key={uuid()}>5</Select.Option>

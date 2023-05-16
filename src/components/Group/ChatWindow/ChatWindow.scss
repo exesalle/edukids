@@ -1,11 +1,11 @@
-.channel-container {
+.chat-container {
   min-height: 100vh;
   flex-direction: column;
   position: relative;
 }
 
 .channel-container h2 {
-  margin-left: 100px;
+  text-align: center;
 }
 
 .messages-container {

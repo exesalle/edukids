@@ -31,7 +31,7 @@ const Schedule: React.FC = () => {
     return (
       <ul className="events">
         {listData.map((item: ILesson) => (
-          <Button style={{width: '100%', overflow:'hidden'}} key={item.title} onClick={(e) => onSelectEvent(item)}>
+          <Button type="primary" style={{width: '100%', overflow:'hidden'}} key={item.title} onClick={(e) => onSelectEvent(item)}>
             {item.title}
           </Button>
         ))}

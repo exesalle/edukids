@@ -3,7 +3,7 @@ import uuid from 'react-uuid';
 import {IUserInfo, UsersListProps} from '../../../Types';
 import UserComponent from '../../User/User';
 import './ManiPulateUsersLists.scss';
-import {UserAddOutlined} from '@ant-design/icons';
+import {PlusOutlined, DeleteOutlined} from '@ant-design/icons';
 
 import {auth} from '../../../firebase';
 import {Button, Input} from 'antd';
@@ -45,9 +45,9 @@ const ManiPulateUsersLists = ({ leftSide, setLeftSide, rightSide, setRightSide }
 
   const mappingUserAddButton = (user: IUserInfo): JSX.Element | undefined => {
     const buttonEl: JSX.Element =
-      <Button icon={<UserAddOutlined />} onClick={() => {
+      <Button icon={<PlusOutlined />} onClick={() => {
         handleAddUser(user);
-      }}>добавить
+      }}>
       </Button>;
     if (user.username !== currentUser) {
       return <div key={uuid()}>
@@ -58,9 +58,9 @@ const ManiPulateUsersLists = ({ leftSide, setLeftSide, rightSide, setRightSide }
 
   const mappingUserRemoveButton = (user: IUserInfo): JSX.Element | undefined => {
     const buttonEl: JSX.Element =
-      <Button  danger onClick={() => {
+      <Button danger icon={<DeleteOutlined/>} onClick={() => {
         handleRemoveUser(user);
-      }} > Удалить
+      }} >
       </Button>;
     if (user.username !== currentUser) {
       return <div key={uuid()}>

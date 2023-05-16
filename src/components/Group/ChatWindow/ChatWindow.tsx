@@ -61,7 +61,7 @@ const ChatWindow = ({ currentChat }: ChatProps) => {
   return (
     <>
       {currentChat?.course ?
-        <div className="channel-container">
+        <div className="chat-container">
           <div style={{textAlign: 'center'}}>
             <h3>Группа: {currentChat.title}</h3>
             <h3>Направление: {currentChat.course}</h3>
@@ -81,7 +81,7 @@ const ChatWindow = ({ currentChat }: ChatProps) => {
             }
           </div>
           <CreateMessage handleSubmit={handleSubmit} existingMessage={messageToBeEdited?.content} />
-        </div> : <><h2 style={{textAlign: 'center', marginTop: 200}}>⇐ Выберите группу</h2></> }
+        </div> : <><h2 style={{margin: 150}}>⇐ Выберите группу</h2></> }
     </>
   );
 };
