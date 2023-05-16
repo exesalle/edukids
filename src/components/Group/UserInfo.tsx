@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import uuid from 'react-uuid';
-import {ChatParticipantsProps,IMark, IUserInfo} from '../Types';
-import UserComponent from './User/User';
+import {ChatParticipantsProps,IMark, IUserInfo} from '../../Types';
+import UserComponent from '../User/User';
 import {Button, Col, DatePicker, DatePickerProps, Row, Select, Space, Table, Tag} from 'antd';
-import {RootState, useStoreDispatch} from '../store/store';
-import {addMark, getMarks} from '../store/marksSlice';
+import {RootState, useStoreDispatch} from '../../store/store';
+import {addMark, getMarks} from '../../store/marksSlice';
 import {useSelector} from 'react-redux';
-import {auth} from '../firebase';
+import {auth} from '../../firebase';
 
 const UserInfo = ({ currentChat, allUsers }: ChatParticipantsProps): JSX.Element | null => {
 

@@ -14,9 +14,6 @@ import {
 import { IUserInfo } from '../Types';
 
 export const db = getDatabase();
-export const getAllGroupUsers = () => {
-  return get(query(ref(db, 'channels/participants')));
-};
 
 export const getLiveChatsByUsername = (username: string, listen: (_snapshot: DataSnapshot) => void) => {
   return onValue(ref(db, `users/${username}/channels`), listen);
@@ -31,7 +28,6 @@ export const getChatById = (id: string | null) => {
       if (!result.exists()) {
         throw new Error(`Группа с id ${id} не найдена`);
       }
-
       const chat = result.val();
       chat.id = id;
       chat.date = new Date(chat.date);
@@ -41,7 +37,6 @@ export const getChatById = (id: string | null) => {
       } else {
         chat.participants = Object.values(chat.participants);
       }
-
       return chat;
     });
 };
@@ -67,12 +62,6 @@ export const createChat = (title: string, participants: string[] | IUserInfo[], 
 
 export const getChatByName = (chatName: string) => {
   return get(query(ref(db, 'channels'), orderByChild('title'), equalTo(chatName)));
-};
-
-export const removeUserFromChannel = (channelID: string, userIndex: number) => {
-  return update(ref(db), {
-    [`channels/${channelID}/participants/${userIndex}`]: null,
-  });
 };
 
 export const updateChatLastActivity = (channelID: string, date: number) => {

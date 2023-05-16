@@ -10,7 +10,7 @@ import {getUsers} from '../../store/usersSlice';
 import {RootState, useStoreDispatch} from '../../store/store';
 import {useSelector} from 'react-redux';
 import {Button, Input, Select} from 'antd';
-import UserInfo from '../UserInfo';
+import UserInfo from './UserInfo';
 import {getTeachers} from '../../store/teachersSlice';
 import {getCourses} from '../../store/coursesSlice';
 import ChatsList from './ChatsList/ChatsList';
