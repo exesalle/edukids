@@ -7,36 +7,6 @@
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
-.edit {
-  display: grid;
-  grid-template-columns: 70px 1fr 5fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  margin: 10px;
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  background-color: rgba(243, 214, 121, 1);
-  border-radius: 10px;
-  border: 3px solid rgba(243, 214, 121, 1);
-}
-
-.message-avatar {
-  grid-column: 1;
-  grid-row: 1 / 4;
-}
-
-.message-avatar img {
-  margin: 0;
-  object-fit: cover;
-}
-
-.message-avatar .avatar-default-header {
-  font-family: 'Baloo 2', Arial, Helvetica, sans-serif;
-}
-
-.user-avatar-message {
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-}
 
 .message-author {
   grid-column: 2;
@@ -53,20 +23,6 @@
   padding-left: 1em;
 }
 
-.react-btns {
-  grid-column: 4;
-  grid-row: 3;
-  text-align: right;
-  width: fit-content;
-  float: right;
-}
-
-.reactions {
-  background-color: transparent;
-  border: 0px;
-  font-size: 12px;
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
-}
 
 .my-message {
   grid-column: 2 / 5;
@@ -89,7 +45,6 @@
 
 }
 
-/* OTHER USERS' MESSAGES */
 .others-message {
   color: black;
   background-color: rgb(246, 244, 228);
@@ -98,41 +53,10 @@
   white-space: normal;
 }
 
-/* CURRENT USER'S MESSAGES */
 .my-message {
   color: white;
   background-color: rgba(69, 88, 207, 1);
   word-wrap: break-word;
   overflow-x:hidden;
   white-space: normal;
-}
-
-.edit-my-message {
-  grid-column: 4;
-  grid-row: 1;
-  justify-self: right;
-  z-index: 9;
-  margin: 5px 5px 0 0;
-}
-
-.edit-message-btn {
-  background-color: transparent;
-  border: 1px solid white;
-  border-radius: 20px;
-  color: white;
-  transition: border-color 0.5s, background-color 0.5s, color 0.5s;
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
-}
-
-.edit-message-btn:hover {
-  background-color: white;
-  border-color: rgba(47, 69, 93, 1);
-  color: rgba(47, 69, 93, 1);
-}
-
-.img-in-message {
-  display: flex;
-  width: 70%;
-  border-radius: 10px;
-  margin: 10px auto;
 }
