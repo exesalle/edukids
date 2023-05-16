@@ -2,17 +2,14 @@ import { ChatParticipantsProps, IUserInfo } from '../../Types';
 import React, { useContext } from 'react';
 import AppContext from '../../providers/AppContext';
 import UserComponent from '../User/User';
-import './ChatParticipants.scss';
 import uuid from 'react-uuid';
 import ScheduleLesson from '../ScheduleLesson/ScheduleLesson';
 import {Button} from 'antd';
 import {auth} from '../../firebase';
 
 const ChatParticipants = ({ currentChat, allUsers, owner }: ChatParticipantsProps): JSX.Element | null => {
-  const { appState,
+  const {
     isDetailedChatClicked,
-    setIsCreateChatClicked,
-    setIsDetailedChatClicked,
     setIsMeetingClicked,
     isMeetingClicked,
   } = useContext(AppContext);

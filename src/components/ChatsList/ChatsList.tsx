@@ -53,7 +53,7 @@ const ChatsList = ({ props }:  IChatsListProps) => {
     <div className="chats-channels-list">
       {user?.displayName === 'admin' ?
         <>
-          <Button style={{width: '200px'}} onClick={openCreateChat} className="view-users-btn">Создать группу</Button>
+          <Button style={{width: '200px'}} onClick={openCreateChat}>Создать группу</Button>
           <h4>Группы:</h4>
           <Input style={{width: '200px'}} type="text" value="" placeholder="Поиск..." onChange={(event) => setSearchTerm(event.target.value)} />
         </> : null

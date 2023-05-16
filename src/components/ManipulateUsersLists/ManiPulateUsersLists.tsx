@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import uuid from 'react-uuid';
 import {IUserInfo, UsersListProps} from '../../Types';
 import UserComponent from '../User/User';
@@ -6,7 +6,7 @@ import './ManiPulateUsersLists.scss';
 import {UserAddOutlined} from '@ant-design/icons';
 
 import {auth} from '../../firebase';
-import {Button} from 'antd';
+import {Button, Input} from 'antd';
 
 const ManiPulateUsersLists = ({ leftSide, setLeftSide, rightSide, setRightSide }: UsersListProps): JSX.Element => {
   const [searchTermLeft, setSearchTermLeft] = useState<string>('');
@@ -47,8 +47,7 @@ const ManiPulateUsersLists = ({ leftSide, setLeftSide, rightSide, setRightSide }
     const buttonEl: JSX.Element =
       <Button icon={<UserAddOutlined />} onClick={() => {
         handleAddUser(user);
-      }} id="add-remove-user-btn">добавить
-        {/*<img src={Add} alt="add-btn" />*/}
+      }}>добавить
       </Button>;
     if (user.username !== currentUser) {
       return <div key={uuid()}>
@@ -59,11 +58,10 @@ const ManiPulateUsersLists = ({ leftSide, setLeftSide, rightSide, setRightSide }
 
   const mappingUserRemoveButton = (user: IUserInfo): JSX.Element | undefined => {
     const buttonEl: JSX.Element =
-      <button onClick={() => {
+      <Button  danger onClick={() => {
         handleRemoveUser(user);
-      }} id="add-remove-user-btn"> удалить
-        {/*<img src={Delete} alt="remove-btn" />*/}
-      </button>;
+      }} > Удалить
+      </Button>;
     if (user.username !== currentUser) {
       return <div key={uuid()}>
         <UserComponent props={{ user, buttonEl }} />
@@ -74,9 +72,9 @@ const ManiPulateUsersLists = ({ leftSide, setLeftSide, rightSide, setRightSide }
   return (
     <div className="create-group-view">
       <div className="create-group-wrapper">
-        <div id="create-group-form" >
+        <div >
           <p>Все пользователи:</p>
-          <input type="text" defaultValue="" placeholder="Поиск..." onChange={(event) => setSearchTermLeft(event.target.value)} />
+          <Input type="text" defaultValue="" placeholder="Поиск..." onChange={(event) => setSearchTermLeft(event.target.value)} />
         </div>
         <div className="users-container">
           {searchTermLeft ?
@@ -90,7 +88,7 @@ const ManiPulateUsersLists = ({ leftSide, setLeftSide, rightSide, setRightSide }
 
       <div className="list-of-added-participants">
         <p>Состав группы:</p>
-        <input type="text" defaultValue="" placeholder="Поиск..." onChange={(event) => setSearchTermRight(event.target.value)} />
+        <Input type="text" defaultValue="" placeholder="Поиск..." onChange={(event) => setSearchTermRight(event.target.value)} />
         <div className="users-container-added">
           {searchTermRight ?
             rightResult.length > 0 ?
