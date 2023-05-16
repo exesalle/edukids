@@ -44,7 +44,7 @@ const ChatWindow = ({ currentChat }: ChatProps) => {
 
   const handleSubmit = (message: string) => {
     if (message.trim().length > 0) {
-      addMessage(currentChat.id, user?.displayName|| 'default_username', message)
+      addMessage(currentChat.id, user?.displayName || 'default_username', message, user?.photoURL || 'default_name')
         .then(() => updateChatLastActivity(currentChat.id, Date.now()))
         .catch((err) => {
           console.error(err);

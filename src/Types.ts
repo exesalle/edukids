@@ -31,7 +31,7 @@ export interface IMessage {
   id: string,
   content: string,
   author: string,
-  role:string,
+  username:string,
   createdOn: Date
 }
 

@@ -17,13 +17,12 @@ const Message = ({ message}: MessageProps): JSX.Element => {
     console.log(message.author);
   }, [message.author]);
 
-  const isCurrentUserAuthor = currentUser === message.author;
+  const isCurrentUserAuthor = currentUser === message.username;
 
   return (
     <Tag  className={isCurrentUserAuthor ? 'my-message' : 'others-message'}>
       <div className="message-author">
-        {author.name}
-            @{message.author}
+        {message.author}
       </div>
       <div className="message-content">
         {message.content}

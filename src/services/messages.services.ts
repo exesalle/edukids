@@ -19,11 +19,12 @@ export const fromMessagesDocument = (snapshot: DataSnapshot): IMessage[] => {
   });
 };
 
-export const addMessage = (chatId: string, username: string, content: string) => {
+export const addMessage = (chatId: string, username: string, content: string, author: string) => {
   return push(ref(db, `channels/${chatId}/messages`), {
-    author: username,
+    author: author,
     content,
-    createdOn: Date.now()
+    createdOn: Date.now(),
+    username: username
   })
     .then((res) => {
       return getMessageById(chatId, res.key);
