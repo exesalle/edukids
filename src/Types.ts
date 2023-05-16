@@ -5,7 +5,6 @@ export interface IGroupData {
   id: number;
   name: string;
   students: [];
-
 }
 export interface IUserInfo {
   id:number;
