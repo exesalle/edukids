@@ -15,5 +15,3 @@ firebase.initializeApp({
 
 export const auth = getAuth();
 export const db = getFirestore();
-
-export const dbr = getDatabase();

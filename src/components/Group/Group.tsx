@@ -15,10 +15,7 @@ import {getTeachers} from '../../store/teachersSlice';
 import {getCourses} from '../../store/coursesSlice';
 import GroupsList from './GroupsList/GroupsList';
 
-
-
 const Group:React.FC= () => {
-
   const {
     isDetailedChatClicked,
     isCreateChatClicked,

@@ -22,9 +22,7 @@ const UserComponent = ({ props }: UserProps): JSX.Element => {
             </Tag>
           </>
         }
-
       </>
-
     </div>
   );
 };
