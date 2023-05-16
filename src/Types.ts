@@ -32,10 +32,7 @@ export interface IMessage {
   content: string,
   author: string,
   role:string,
-  createdOn: Date,
-  likedBy: string[],
-  fileURL?: string,
-  image?: boolean,
+  createdOn: Date
 }
 
 export interface ICoursesData {

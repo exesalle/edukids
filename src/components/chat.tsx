@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import {createChat, getChatByName, getLiveChatsByUsername, updateUserChats} from '../services/chats.services';
 import {IChat,IUserInfo} from '../Types';
 import {auth} from '../firebase';
-import ChannelsList from './ChannelsList/ChannelsList';
+import ChannelsList from './ChatsList/ChatsList';
 import ManiPulateUsersLists from './ManipulateUsersLists/ManiPulateUsersLists';
 import AppContext from '../providers/AppContext';
 import ChatParticipants from './ChatParticipants/ChatParticipants';

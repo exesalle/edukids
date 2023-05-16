@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import uuid from 'react-uuid';
 import { getChatByName, getChatById } from '../../services/chats.services';
 import { IChat, IChatsListProps } from '../../Types';
-import './ChannelsList.scss';
+import './Chats.scss';
 import AppContext from '../../providers/AppContext';
 import {Button, Input} from 'antd';
 import {auth} from '../../firebase';
