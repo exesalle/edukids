@@ -57,11 +57,11 @@ const UserInfo = ({ currentChat, allUsers }: ChatParticipantsProps): JSX.Element
 
   const mappingParticipants = (participant: IUserInfo, key: string) => {
     const buttonEl: JSX.Element =
-        <button onClick={() => {
+        <Button onClick={() => {
           dispatch(getMarks(participant, currentChat.course));
           setActiveUser(participant);
-        }} id="add-remove-user-btn"> Выбрать
-        </button>;
+        }}> Выбрать
+        </Button>;
     return <div key={key}>
       <UserComponent props={{ user: participant, buttonEl}} />
     </div>;
