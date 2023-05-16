@@ -1,23 +1,23 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {createChat, getChatByName, getLiveChatsByUsername, updateUserChats} from '../services/chats.services';
-import {IChat,IUserInfo} from '../Types';
-import {auth} from '../firebase';
-import ChannelsList from './ChatsList/ChatsList';
+import {createChat, getChatByName, getLiveChatsByUsername, updateUserChats} from '../../services/chats.services';
+import {IChat,IUserInfo} from '../../Types';
+import {auth} from '../../firebase';
 import ManiPulateUsersLists from './ManipulateUsersLists/ManiPulateUsersLists';
-import AppContext from '../providers/AppContext';
-import ChatParticipants from './ChatParticipants/ChatParticipants';
-import Channel from './Channel/Channel';
-import {getUsers} from '../store/usersSlice';
-import {RootState, useStoreDispatch} from '../store/store';
+import AppContext from '../../providers/AppContext';
+import ChatParticipants from './GroupParticipants/GroupParticipants';
+import Channel from './ChatWindow/ChatWindow';
+import {getUsers} from '../../store/usersSlice';
+import {RootState, useStoreDispatch} from '../../store/store';
 import {useSelector} from 'react-redux';
 import {Button, Input, Select} from 'antd';
-import UserInfo from './UserInfo';
-import {getTeachers} from '../store/teachersSlice';
-import {getCourses} from '../store/coursesSlice';
+import UserInfo from '../UserInfo';
+import {getTeachers} from '../../store/teachersSlice';
+import {getCourses} from '../../store/coursesSlice';
+import ChatsList from './ChatsList/ChatsList';
 
 
 
-const Chat:React.FC= () => {
+const Group:React.FC= () => {
 
   const {
     isDetailedChatClicked,
@@ -123,7 +123,7 @@ const Chat:React.FC= () => {
 
   return (
     <>
-      <ChannelsList props={{ chats, setCurrentChat }} />
+      <ChatsList props={{ chats, setCurrentChat }} />
 
       <div style={{width: '100%'}
       }>
@@ -164,4 +164,4 @@ const Chat:React.FC= () => {
   );
 };
 
-export default Chat;
+export default Group;

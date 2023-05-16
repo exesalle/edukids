@@ -1,8 +1,8 @@
 import React, {FC, useEffect, useState} from 'react';
-import AdminMenu from '../../components/AdminMenu';
+import AdminMenu from '../../components/Menu/AdminMenu';
 import {useSelector} from 'react-redux';
 import {RootState, useStoreDispatch} from '../../store/store';
-import {Button, Input, Modal, Select, Space, Table, Tag} from 'antd';
+import {Button, Input, Modal, Space, Table, Tag} from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import {addCourse, getCourses, removeCourse, updateCourse} from '../../store/coursesSlice';
 import {getTeachers} from '../../store/teachersSlice';

@@ -1,6 +1,6 @@
 import React from 'react';
+import {CurrentUser} from '../../state/useAuthState';
 import MenuButton from './MenuButton';
-import {CurrentUser} from '../state/useAuthState';
 
 const Menu = () => {
   return (

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import AdminMenu from '../../components/AdminMenu';
+import AdminMenu from '../../components/Menu/AdminMenu';
 import {useSelector} from 'react-redux';
 import {RootState, useStoreDispatch} from '../../store/store';
 import {getCourses} from '../../store/coursesSlice';

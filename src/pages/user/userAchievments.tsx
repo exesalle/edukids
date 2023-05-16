@@ -8,7 +8,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import {IEventsData} from '../../Types';
 import uuid from 'react-uuid';
 import {getUsers} from '../../store/usersSlice';
-import UserMenu from '../../components/UserMenu';
+import UserMenu from '../../components/Menu/UserMenu';
 import {auth} from '../../firebase';
 
 const UserAchievments = () => {

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import uuid from 'react-uuid';
-import {IUserInfo, UsersListProps} from '../../Types';
-import UserComponent from '../User/User';
+import {IUserInfo, UsersListProps} from '../../../Types';
+import UserComponent from '../../User/User';
 import './ManiPulateUsersLists.scss';
 import {UserAddOutlined} from '@ant-design/icons';
 
-import {auth} from '../../firebase';
+import {auth} from '../../../firebase';
 import {Button, Input} from 'antd';
 
 const ManiPulateUsersLists = ({ leftSide, setLeftSide, rightSide, setRightSide }: UsersListProps): JSX.Element => {

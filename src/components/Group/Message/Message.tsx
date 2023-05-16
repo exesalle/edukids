@@ -1,8 +1,8 @@
 import React, {useEffect, useState } from 'react';
-import { getUserByUsername } from '../../services/chats.services';
-import { MessageProps, IUserInfo } from '../../Types';
+import { getUserByUsername } from '../../../services/chats.services';
+import { MessageProps, IUserInfo } from '../../../Types';
 import './Message.scss';
-import {auth} from '../../firebase';
+import {auth} from '../../../firebase';
 import {Tag} from 'antd';
 
 const Message = ({ message}: MessageProps): JSX.Element => {

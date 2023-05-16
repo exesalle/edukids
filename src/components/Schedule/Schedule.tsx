@@ -1,6 +1,6 @@
 import React, {useEffect, useState } from 'react';
 import { ILesson } from '../../Types';
-import SelectedLesson from '../SelectedLesson/SelectedLesson';
+import SelectedLesson from './SelectedLesson';
 import {Button, Calendar} from 'antd';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';

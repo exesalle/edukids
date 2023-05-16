@@ -1,13 +1,13 @@
-import { ChatParticipantsProps, IUserInfo } from '../../Types';
+import { ChatParticipantsProps, IUserInfo } from '../../../Types';
 import React, { useContext } from 'react';
-import AppContext from '../../providers/AppContext';
-import UserComponent from '../User/User';
+import AppContext from '../../../providers/AppContext';
+import UserComponent from '../../User/User';
 import uuid from 'react-uuid';
-import ScheduleLesson from '../ScheduleLesson/ScheduleLesson';
+import ScheduleLesson from '../../Schedule/ScheduleLesson';
 import {Button} from 'antd';
-import {auth} from '../../firebase';
+import {auth} from '../../../firebase';
 
-const ChatParticipants = ({ currentChat, allUsers, owner }: ChatParticipantsProps): JSX.Element | null => {
+const GroupParticipants = ({ currentChat, allUsers, owner }: ChatParticipantsProps): JSX.Element | null => {
   const {
     isDetailedChatClicked,
     setIsMeetingClicked,
@@ -60,4 +60,4 @@ const ChatParticipants = ({ currentChat, allUsers, owner }: ChatParticipantsProp
   );
 };
 
-export default ChatParticipants;
+export default GroupParticipants;

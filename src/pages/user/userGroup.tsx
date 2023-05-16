@@ -1,6 +1,6 @@
 import React from 'react';
-import UserMenu from '../../components/UserMenu';
-import Chat from '../../components/chat';
+import UserMenu from '../../components/Menu/UserMenu';
+import Chat from '../../components/Group/Group';
 
 const UserGroup = () => {
   return (

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import AdminMenu from '../../components/AdminMenu';
+import AdminMenu from '../../components/Menu/AdminMenu';
 import {RootState, useStoreDispatch} from '../../store/store';
 import {useSelector} from 'react-redux';
 import {Button, DatePicker, DatePickerProps, Input, Modal, Select, Space, Table, Tag, TimePicker} from 'antd';

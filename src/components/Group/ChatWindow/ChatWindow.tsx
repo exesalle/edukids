@@ -1,14 +1,14 @@
-import { ChatProps, IMessage } from '../../Types';
+import { ChatProps, IMessage } from '../../../Types';
 import React, { useEffect, useRef, useState } from 'react';
-import { fromMessagesDocument, getLiveMessages } from '../../services/messages.services';
+import { fromMessagesDocument, getLiveMessages } from '../../../services/messages.services';
 import CreateMessage from '../CreateMessage/CreateMessage';
 import Message from '../Message/Message';
-import { addMessage } from '../../services/messages.services';
-import { updateChatLastActivity } from '../../services/chats.services';
-import './Channel.scss';
-import {auth} from '../../firebase';
+import { addMessage } from '../../../services/messages.services';
+import { updateChatLastActivity } from '../../../services/chats.services';
+import './ChatWindow.scss';
+import {auth} from '../../../firebase';
 
-const Channel = ({ currentChat }: ChatProps) => {
+const ChatWindow = ({ currentChat }: ChatProps) => {
   const user = auth.currentUser;
 
   const [messages, setMessages] = useState<IMessage[]>([]);
@@ -86,4 +86,4 @@ const Channel = ({ currentChat }: ChatProps) => {
   );
 };
 
-export default Channel;
+export default ChatWindow;

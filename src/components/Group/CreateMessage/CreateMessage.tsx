@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { CreateMessageProps } from '../../Types';
+import { CreateMessageProps } from '../../../Types';
 import {Button, Input} from 'antd';
 import {SendOutlined} from '@ant-design/icons';
 

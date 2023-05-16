@@ -1,6 +1,6 @@
 import React from 'react';
-import TeacherMenu from '../../components/TeacherMenu';
-import Chat from '../../components/chat';
+import TeacherMenu from '../../components/Menu/TeacherMenu';
+import Chat from '../../components/Group/Group';
 
 const TeacherGroup = () => {
   return (

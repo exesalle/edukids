@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
-import MenuButton from './MenuButton';
-import {CurrentUser} from '../state/useAuthState';
+import MenuButton from '../Menu/MenuButton';
+import {CurrentUser} from '../../state/useAuthState';
 import {useAuthState} from 'react-firebase-hooks/auth';
-import {auth} from '../firebase';
+import {auth} from '../../firebase';
 import {useNavigate} from 'react-router-dom';
 
 const AdminMenu:FC = () => {

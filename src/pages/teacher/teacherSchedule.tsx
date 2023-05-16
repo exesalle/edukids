@@ -1,5 +1,5 @@
 import React from 'react';
-import TeacherMenu from '../../components/TeacherMenu';
+import TeacherMenu from '../../components/Menu/TeacherMenu';
 import Schedule from '../../components/Schedule/Schedule';
 
 const TeacherSchedule = () => {

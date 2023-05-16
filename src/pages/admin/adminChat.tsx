@@ -1,6 +1,6 @@
 import React from 'react';
-import AdminMenu from '../../components/AdminMenu';
-import Chat from '../../components/chat';
+import AdminMenu from '../../components/Menu/AdminMenu';
+import Chat from '../../components/Group/Group';
 
 const AdminChat = () => {
   return (
