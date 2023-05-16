@@ -126,11 +126,6 @@ export interface ITeachersData {
   course: ICoursesData[];
 }
 
-export const InitialCourses: ICoursesData[] = [
-];
-
-export const InitialTeachers: IUserInfo[] = [
-];
 
 export interface ILesson {
   title: string,
@@ -154,12 +149,4 @@ export interface SelectedLessonProps {
     id: string,
   },
   setModalState: Dispatch<boolean>,
-}
-
-export enum ActionTypes {
-  REGISTER_SUCCESS = 'REGISTER_SUCCESS',
-  REGISTER_FAIL = 'REGISTER_FAIL',
-  LOGIN_SUCCESS = 'LOGIN_SUCCESS',
-  LOGIN_FAIL = 'LOGIN_FAIL',
-
 }

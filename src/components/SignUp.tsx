@@ -1,11 +1,8 @@
 import React from 'react';
 import {useState} from 'react';
-import {ICoursesData, InitialCourses, IUserInfo} from '../Types';
+import {IUserInfo} from '../Types';
 import {useNavigate} from 'react-router-dom';
-import {getFirestore} from 'firebase/firestore';
 import {Button} from 'antd';
-import {useSelector} from 'react-redux';
-import {RootState, useStoreDispatch} from '../store/store';
 import {signUpUser} from '../store/signUpSlice';
 
 
