@@ -75,9 +75,8 @@ const ManiPulateUsersLists = ({ leftSide, setLeftSide, rightSide, setRightSide }
     <div className="create-group-view">
       <div className="create-group-wrapper">
         <div id="create-group-form" >
-          <div className="search-users-create-team">
-            <input type="text" defaultValue="" placeholder="Поиск..." onChange={(event) => setSearchTermLeft(event.target.value)} />
-          </div>
+          <p>Все пользователи:</p>
+          <input type="text" defaultValue="" placeholder="Поиск..." onChange={(event) => setSearchTermLeft(event.target.value)} />
         </div>
         <div className="users-container">
           {searchTermLeft ?
@@ -90,6 +89,7 @@ const ManiPulateUsersLists = ({ leftSide, setLeftSide, rightSide, setRightSide }
       </div >
 
       <div className="list-of-added-participants">
+        <p>Состав группы:</p>
         <input type="text" defaultValue="" placeholder="Поиск..." onChange={(event) => setSearchTermRight(event.target.value)} />
         <div className="users-container-added">
           {searchTermRight ?

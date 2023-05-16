@@ -13,7 +13,7 @@ const Home = () => {
           <img alt="df" src="/img/main.svg" />
           <div className="main-text">
             <span style={{color: '#232323'}}>EDU</span><span style={{color: '#F6931E'}}>KIDS</span>
-            <h2 style={{color: '#232323'}}>ЦЕНТР ДЕТСКОГО ТВОРЧЕСТВА ДЛЯ ДЕТЕЙ ОТ 4-12 ЛЕТ</h2>
+            <h2 style={{color: '#232323'}}>ЦЕНТР ДЕТСКОГО ТВОРЧЕСТВА ДЛЯ ДЕТЕЙ</h2>
           </div>
 
         </div>

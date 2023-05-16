@@ -10,7 +10,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  margin: 0 auto;
+  margin-top: -70px;
 }
 
 .create-group-wrapper,
@@ -21,7 +21,6 @@
 }
 
 .list-of-added-participants {
-  border-left: 2px solid rgb(44, 28, 61);
 }
 
 input {
@@ -38,4 +37,5 @@ input {
   height: calc(65vh - 142px);
   padding-right: 10px;
   border-radius: 10px;
+
 }

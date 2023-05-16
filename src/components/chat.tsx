@@ -130,13 +130,13 @@ const Chat:React.FC= () => {
 
         <> {isCreateChatClicked ?
           <>
-            <div className="input-course">
-              <Input style={{ width: 230 }}  name="group-name" placeholder="Введите название группы..." required defaultValue=""
+            <div className="main-screen">
+              <Input style={{ width: 230, marginRight: 10 }}  name="group-name" placeholder="Введите название группы..." required defaultValue=""
                 onChange={(e) => setGroupData({
                   ...groupData,
                   name: e.target.value.trim()
                 })} />
-              <Select style={{ width: 330 }} value={groupData.course} onSelect={(value) => handleOnChangeCourse(value)} >
+              <Select style={{ width: 330 , marginRight: 20 }} value={groupData.course} onSelect={(value) => handleOnChangeCourse(value)} >
                 {courses.map((el, index) =>
                   <Select.Option value={el.name} key={index} >{el.name}</Select.Option >
                 )}

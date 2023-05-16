@@ -30,9 +30,6 @@ const LogBtn = () => {
     navigate('/login');
   };
 
-
-
-
   return (user) ? (
     <>
       <div>

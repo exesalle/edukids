@@ -105,11 +105,11 @@ const AdminCourses:FC = () => {
           <Modal title="Редактировать" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
             <Input addonBefore="Название:" type="name" value={editData.name}
               onChange={(e) => setEditData({...editData, name: e.target.value})} />
-            <Select  value={editData.teacher} onSelect={(value) => handleOnChangeEdit(value)} >
-              {teachers.map((el, index) =>
-                <Select.Option value={el.name} key={index} >{el.name}</Select.Option >
-              )}
-            </Select>
+            {/*<Select  value={editData.teacher} onSelect={(value) => handleOnChangeEdit(value)} >*/}
+            {/*  {teachers.map((el, index) =>*/}
+            {/*    <Select.Option value={el.name} key={index} >{el.name}</Select.Option >*/}
+            {/*  )}*/}
+            {/*</Select>*/}
           </Modal>
         </div>
       </div>
