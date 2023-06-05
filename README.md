@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# Админка
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+login: admin@edukids.com
+password: admin@edukids.com
 
 ## Available Scripts
 
