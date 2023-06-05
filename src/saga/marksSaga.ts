@@ -13,7 +13,7 @@ const db = getDatabase();
 
 function* getMarksWorker(action: ReturnType<typeof getMarks>):any {
   try {
-    const lessonsSnapshot = yield get(query(ref(db, `/users/${action.payload.username}/${action.meta.subject}/marks/`)));
+    const lessonsSnapshot = yield get(query(ref(db, `/users/${action.payload}/${action.meta.subject}/marks/`)));
     const collections = Object.entries(lessonsSnapshot.val() || {})
       .map(([id, data]) => ({ ...(data as object), id }));
     yield put(getMarksSuccess(collections));

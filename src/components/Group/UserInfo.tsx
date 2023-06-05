@@ -60,11 +60,14 @@ const UserInfo = ({ currentChat, allUsers }: ChatParticipantsProps): JSX.Element
     }
   ];
 
+  if (user?.displayName?.includes('user')) {
+    dispatch(getMarks(user?.displayName, currentChat.course));
+  }
 
   const mappingParticipants = (participant: IUserInfo, key: string) => {
     const buttonEl: JSX.Element =
         <Button icon={<UserAddOutlined />} onClick={() => {
-          dispatch(getMarks(participant, currentChat.course));
+          dispatch(getMarks(participant.username, currentChat.course));
           setActiveUser(participant);
         }}>
         </Button>;
@@ -78,7 +81,7 @@ const UserInfo = ({ currentChat, allUsers }: ChatParticipantsProps): JSX.Element
 
   const handleAddMark = () => {
     dispatch(addMark(mark, activeUser, currentChat.course));
-    dispatch(getMarks(activeUser, currentChat.course));
+    dispatch(getMarks(activeUser.username, currentChat.course));
   };
 
   const onChangeDate: DatePickerProps['onChange'] = (date, dateString) => {
@@ -117,7 +120,9 @@ const UserInfo = ({ currentChat, allUsers }: ChatParticipantsProps): JSX.Element
               </Row>
             </div>
           </> :
-          <></>: <></>}
+          <>
+            <h2 style={{textAlign: 'center'}}>Дневник</h2>
+            <Table style={{ height: '500px', overflowY: 'auto'}} pagination={{ pageSize: 6}} columns={columns} dataSource={marks} rowKey={uuid} /></>: <></>}
     </>
   );
 };

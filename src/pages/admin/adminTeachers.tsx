@@ -25,7 +25,6 @@ const AdminTeachers:React.FC = () => {
   });
   const dispatch = useStoreDispatch();
   const teachers = useSelector((state:RootState)=> state.teachers.teachers);
-  const courses = useSelector((state:RootState)=> state.courses.courses);
 
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isRegOpen, setIsRegOpen] = useState(false);
@@ -37,9 +36,7 @@ const AdminTeachers:React.FC = () => {
       dataIndex: 'name',
       render: (_:string, item: ITeachersData) => {
         return (
-          <>
-            <Tag color="green" style={{ fontSize: '100%', padding:'10px'}}>{item.name}</Tag>
-          </>);
+          <Tag color="green" style={{ fontSize: '100%', padding:'10px'}}>{item.name}</Tag>);
       }
     },
     // {

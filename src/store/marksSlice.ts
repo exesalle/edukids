@@ -32,7 +32,7 @@ export const marksSlice = createSlice({
 export const ASYNC_GET_MARKS = 'ASYNC_GET_MARKS';
 export const getMarks = createAction(
   'ASYNC_GET_MARKS',
-  (payload: IUserInfo, subject: string) => {
+  (payload: string, subject: string) => {
     return { payload, meta:{subject}};
   }
 );

@@ -32,11 +32,12 @@ const GroupParticipants = ({ currentChat, allUsers, owner }: ChatParticipantsPro
     .filter((user) => currentChat.participants.includes(user.username));
 
   return (
-    !user?.displayName?.includes('user') ?
-      currentChat?.course ?
-        isDetailedChatClicked ?
-          <div className="participants-list">
-            {isMeetingClicked ?
+
+    currentChat?.course ?
+      isDetailedChatClicked ?
+        <div className="participants-list">
+          {!user?.displayName?.includes('user') ?
+            <>{isMeetingClicked ?
               <Button
                 style={{width: '220px', margin: '5px'}}
                 onClick={() => setIsMeetingClicked(!isMeetingClicked)}
@@ -45,18 +46,18 @@ const GroupParticipants = ({ currentChat, allUsers, owner }: ChatParticipantsPro
                 style={{width: '220px',  margin: '5px'}}
                 onClick={() => setIsMeetingClicked(!isMeetingClicked)}
               >Создать новое занятие</Button>
-            }
+            }</>:
+            <></>}
 
-            {isMeetingClicked ?
-              <ScheduleLesson currentChat={currentChat}/> :
-              <>
-                <h4>Состав группы:</h4><div>
-                  {currentChatUsers.map((participant) => mappingParticipants(participant, uuid()))}
-                </div>
-              </>
-            }
-          </div> :
-          <></> :
+          {isMeetingClicked ?
+            <ScheduleLesson currentChat={currentChat}/> :
+            <>
+              <h4>Состав группы:</h4><div>
+                {currentChatUsers.map((participant) => mappingParticipants(participant, uuid()))}
+              </div>
+            </>
+          }
+        </div> :
         <></> :
       <></>
   );

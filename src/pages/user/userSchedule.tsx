@@ -4,11 +4,11 @@ import UserMenu from '../../components/Menu/UserMenu';
 const UserSchedule = () => {
 
   return (
-    <>      <UserMenu/>
+    <>
+      <UserMenu/>
       <div className="main-screen">
         <Schedule/>
       </div>
-
     </>
   );
 };

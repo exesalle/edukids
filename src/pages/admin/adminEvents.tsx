@@ -28,9 +28,7 @@ const AdminEvents:React.FC = () => {
       dataIndex: 'name',
       render: (_: string, item: IEventsData) => {
         return (
-          <>
-            <Tag color="green" style={{ fontSize: '100%', padding:'10px'}}>{item.name}</Tag>
-          </>);
+          <Tag color="green" style={{ fontSize: '100%', padding:'10px'}}>{item.name}</Tag>);
       }
     },
     {
@@ -39,9 +37,7 @@ const AdminEvents:React.FC = () => {
       dataIndex: 'date',
       render: (_: string, item: IEventsData) => {
         return (
-          <>
-            <Tag color="green">{item.date}</Tag>
-          </>);
+          <Tag color="green">{item.date}</Tag>);
       },
       sorter: {
         compare: (a: any, b: any) =>
@@ -53,10 +49,7 @@ const AdminEvents:React.FC = () => {
       key: 'time',
       dataIndex: 'time',
       render: (_: string, item: IEventsData) => {
-        return (
-          <>
-            <Tag color="green">{item.time}</Tag>
-          </>);
+        return (<Tag color="green">{item.time}</Tag>);
       }
     },
     {
@@ -76,12 +69,10 @@ const AdminEvents:React.FC = () => {
       width: '10%',
       render: (_: string, item: IEventsData) => {
         return (
-          <>
-            <Space key={uuid()}  size="middle">
-              <Button type="primary" key={uuid()}  icon={<EditOutlined />} onClick={() => showModal(item)} size="large" />
-              <Button type="primary"  key={uuid()}  icon={<DeleteOutlined />} onClick={() => dispatch(removeEvent(item))} size="large" danger/>
-            </Space>
-          </>
+          <Space key={uuid()}  size="middle">
+            <Button type="primary" key={uuid()}  icon={<EditOutlined />} onClick={() => showModal(item)} size="large" />
+            <Button type="primary"  key={uuid()}  icon={<DeleteOutlined />} onClick={() => dispatch(removeEvent(item))} size="large" danger/>
+          </Space>
         );
       }
     }

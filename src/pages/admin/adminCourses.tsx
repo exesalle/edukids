@@ -18,22 +18,17 @@ const AdminCourses:FC = () => {
       key: 'name',
       dataIndex: 'name',
       render: (_:string, item: ICoursesData) => {
-        return (
-          <>
-            <Tag color="green" key={item.name} style={{ fontSize: '120%', padding:'10px'}}>{item.name}</Tag>
-          </>);
+        return (<Tag color="green" key={item.name} style={{ fontSize: '120%', padding:'10px'}}>{item.name}</Tag>);
       }
     },
     {
       width: '10%',
       render: (item: ICoursesData) => {
         return (
-          <>
-            <Space key={uuid()}  size="middle">
-              <Button type="primary" key={uuid()}  icon={<EditOutlined />} onClick={() => showModal(item)} size="large" />
-              <Button type="primary"  key={uuid()}  icon={<DeleteOutlined />} onClick={() => dispatch(removeCourse(item))} size="large" danger/>
-            </Space>
-          </>
+          <Space key={uuid()}  size="middle">
+            <Button type="primary" key={uuid()}  icon={<EditOutlined />} onClick={() => showModal(item)} size="large" />
+            <Button type="primary"  key={uuid()}  icon={<DeleteOutlined />} onClick={() => dispatch(removeCourse(item))} size="large" danger/>
+          </Space>
         );
       }
     }

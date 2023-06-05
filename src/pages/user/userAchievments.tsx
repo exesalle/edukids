@@ -22,9 +22,8 @@ const UserAchievments = () => {
       dataIndex: 'name',
       render: (_: string, item: IEventsData) => {
         return (
-          <>
-            <Tag color="green" style={{ fontSize: '100%', padding:'10px'}}>{item.name}</Tag>
-          </>);
+          <Tag color="green" style={{ fontSize: '100%', padding:'10px'}}>{item.name}</Tag>
+        );
       }
     },
     {
@@ -33,9 +32,7 @@ const UserAchievments = () => {
       dataIndex: 'date',
       render: (_: string, item: IEventsData) => {
         return (
-          <>
-            <Tag color="green">{item.date}</Tag>
-          </>);
+          <Tag color="green">{item.date}</Tag>);
       }
     },
     {
@@ -44,9 +41,7 @@ const UserAchievments = () => {
       dataIndex: 'time',
       render: (_: string, item: IEventsData) => {
         return (
-          <>
-            <Tag color="green">{item.time}</Tag>
-          </>);
+          <Tag color="green">{item.time}</Tag>);
       }
     },
     {
