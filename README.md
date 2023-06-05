@@ -10,7 +10,7 @@
 • Создание и редактирование профилей пользователей; \
 • Журнал группы;
 
-Стек: React, TypeScript, Redux-toolkit, Firebase, Saga, AntDesign, SCSS
+Стек: React, TypeScript, Redux, Firebase, Saga, AntDesign, SCSS
 
 ## Админка
 
